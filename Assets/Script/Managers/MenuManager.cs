@@ -17,6 +17,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private List<MenuSO> day8NewMenu;
     [SerializeField] private List<MenuSO> day17NewMenu;
 
+    private void Start()
+    {
+        CheckDay();
+    }
     public void CheckDay()
     {
         int day = GameManager.instance.Day;
