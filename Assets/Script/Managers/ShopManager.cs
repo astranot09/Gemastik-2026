@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    [Header("List Of IngredientSO")]
     [SerializeField] private List<IngredientSO> ingredientList;
+
+    [Header("Shop")]
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject shopItemPrefab;
 

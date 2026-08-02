@@ -7,6 +7,7 @@ public class Ingredient : MonoBehaviour
     [Header("Read Only")]
     [SerializeField] private IngredientSO ingredientData = null;
     [SerializeField] private TMP_Text ingredientText;
+
     private string name;
     private Sprite sprite;
     private int expiry;
@@ -20,5 +21,6 @@ public class Ingredient : MonoBehaviour
         expiry = ingredientData.ingredientExpiredTime;
         qty = ingredientData.ingredientQuantity;
         desc = name + " - " + qty + " item / " + expiry + " day before expiry";
+        Debug.Log(desc);
     }
 }
