@@ -17,12 +17,24 @@ public class GameManager : MonoBehaviour
 
     public int Day => day;
 
-    //Event
-    public event Action NewDayStart;
 
+    [Header("Setting")]
+    [SerializeField] private int endOfDayPopularity = 20;
     public void NextDay()
     {
         day++;
-        NewDayStart?.Invoke();
+    }
+    public void EndOfDay()
+    {
+        EndOfDayIncreaseRestaurantPopularity();
+    }
+
+
+
+
+    //========================= EVENT POPULARITY ==============================
+    public void EndOfDayIncreaseRestaurantPopularity()
+    {
+        PopularityManager.instance.IncreasePopularity(endOfDayPopularity);
     }
 }

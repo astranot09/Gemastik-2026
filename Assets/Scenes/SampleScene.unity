@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 0
+  endOfDayPopularity: 20
 --- !u!4 &277138908
 Transform:
   m_ObjectHideFlags: 0
@@ -861,6 +862,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945883326}
   m_CullTransparentMesh: 1
+--- !u!1 &1130202865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130202867}
+  - component: {fileID: 1130202866}
+  m_Layer: 0
+  m_Name: PopularityManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1130202866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130202865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead10e4fa7861a64d93f30a3db29e6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popularity: 0
+--- !u!4 &1130202867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130202865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 721.6473, y: 553.9957, z: -1.3629998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1307739349
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +962,7 @@ MonoBehaviour:
   availableRestaurantMenu: []
   allMenuCanBeOrdered: []
   lookedMenu: 0
+  decreasePopularityValue: 5
 --- !u!114 &1307739352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,9 +1007,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1307739351}
-        m_TargetAssemblyTypeName: NPCChooseMenu, Assembly-CSharp
-        m_MethodName: CheckTheMenu
+      - m_Target: {fileID: 277138907}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EndOfDay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1354,6 +1401,52 @@ MonoBehaviour:
   day17NewMenu:
   - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
   - {fileID: 11400000, guid: 1e3cc58161270da4abc542e9a12c9da8, type: 2}
+--- !u!1 &2126590652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126590654}
+  - component: {fileID: 2126590653}
+  m_Layer: 0
+  m_Name: WasteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2126590653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126590652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae919fb9197dce04ab607751c2a21056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWasteInBucket: 0
+  maxWasteInBucket: 5
+--- !u!4 &2126590654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126590652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 721.6473, y: 553.9957, z: -1.3629998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1367,3 +1460,5 @@ SceneRoots:
   - {fileID: 320029350}
   - {fileID: 1890036336}
   - {fileID: 277138908}
+  - {fileID: 1130202867}
+  - {fileID: 2126590654}

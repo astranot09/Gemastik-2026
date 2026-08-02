@@ -11,6 +11,9 @@ public class NPCChooseMenu : MonoBehaviour
     [Header("Status")]
     [SerializeField] private bool lookedMenu = false;
 
+    [Header("Setting")]
+    [SerializeField] private int decreasePopularityValue = 5;
+
     private void Start()
     {
         CheckListRestaurantMenu();
@@ -62,6 +65,10 @@ public class NPCChooseMenu : MonoBehaviour
     public void NPCDisappointed()
     {
         Debug.Log("Ga ada makanannya :(");
+        if(PopularityManager.instance != null)
+        {
+            PopularityManager.instance.DecreasePopularity(decreasePopularityValue);
+        }
     }
     public void NPCHappyEatFood()
     {
