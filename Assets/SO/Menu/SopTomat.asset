@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f30b5c125f3f174198064058cb25a1b, type: 2}
   - {fileID: 11400000, guid: 083fd2cf975f1184785afda13655662a, type: 2}
   menuPrice: 40
+  statisticEventType: 0300000004000000

@@ -8,5 +8,5 @@ public class MenuSO : ScriptableObject
     public Sprite menuSprite;
     public List<IngredientSO> listIngredient;
     public int menuPrice;
-    public StatisticEventType statisticEventType;
+    public List<StatisticEventType> statisticEventType;
 }

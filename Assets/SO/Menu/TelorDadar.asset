@@ -17,3 +17,4 @@ MonoBehaviour:
   listIngredient:
   - {fileID: 11400000, guid: f0be61e8a9762e940aae1998505595a4, type: 2}
   menuPrice: 12
+  statisticEventType: 00000000
