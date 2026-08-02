@@ -340,6 +340,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &760101656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760101658}
+  - component: {fileID: 760101657}
+  m_Layer: 0
+  m_Name: StatisticManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &760101657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760101656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f459de42f42944fa974e6f035e0a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allStatisticEvent:
+  - type: 1
+    nameEvent: Spicy Food Time
+    descriptionEvent: Tren makan makanan pedas sedang tinggi, orang lagi suka makan
+      makanan pedas
+    menuSOs:
+    - {fileID: 11400000, guid: d703f33153a966b4aa95832aae9475c4, type: 2}
+    - {fileID: 11400000, guid: a4835d54f7dc9b64e8a257adac8a0b3d, type: 2}
+    - {fileID: 11400000, guid: 713fff45946d22240b330ff9fdf9d0d8, type: 2}
+  - type: 2
+    nameEvent: Protein Food Time
+    descriptionEvent: Akhir - akhir ini banyak orang yang lagi butuh asupan protein
+      yang banyak
+    menuSOs:
+    - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
+    - {fileID: 11400000, guid: a4835d54f7dc9b64e8a257adac8a0b3d, type: 2}
+    - {fileID: 11400000, guid: 4ec63b4e460d1cd45ad1bff20937828a, type: 2}
+    - {fileID: 11400000, guid: 1e3cc58161270da4abc542e9a12c9da8, type: 2}
+    - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
+    - {fileID: 11400000, guid: 713fff45946d22240b330ff9fdf9d0d8, type: 2}
+  - type: 3
+    nameEvent: Healthy Food Time
+    descriptionEvent: Lagi masa - masa orang sakit, dibutuhkan makan - makanan yang
+      sehat
+    menuSOs:
+    - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
+    - {fileID: 11400000, guid: b16f20b2c9510b747bca2acd3215aaa8, type: 2}
+  - type: 3
+    nameEvent: Healthy Food Time
+    descriptionEvent: Diluar sangat dingin.. butuh makan makanan yang hangat
+    menuSOs:
+    - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
+    - {fileID: 11400000, guid: b16f20b2c9510b747bca2acd3215aaa8, type: 2}
+    - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
+--- !u!4 &760101658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760101656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.27193248, y: -1.7741141, z: 0.047831696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624774859
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,3 +557,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1663101333}
   - {fileID: 1624774861}
+  - {fileID: 760101658}
