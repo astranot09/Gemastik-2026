@@ -5,22 +5,27 @@ using UnityEngine.UI;
 public class Ingredient : MonoBehaviour
 {
     [Header("Read Only")]
-    [SerializeField] private IngredientSO ingredientData = null;
-    [SerializeField] private TMP_Text ingredientText;
+    [SerializeField] protected IngredientSO ingredientData = null;
 
-    private string name;
-    private Sprite sprite;
-    private int expiry;
-    private int qty;
-    private string desc;
-    public void Initialize(IngredientSO ingredientSO)
+    protected InventoryManager inventoryManager;
+    protected string name;
+    protected Sprite sprite;
+    protected int expiry;
+    protected int price;
+    public virtual void Initialize(IngredientSO ingredientSO)
     {
         ingredientData = ingredientSO;
         name = ingredientData.ingredientName;
         sprite = ingredientData.ingredientSprite;
         expiry = ingredientData.ingredientExpiredTime;
-        qty = ingredientData.ingredientQuantity;
-        desc = name + " - " + qty + " item / " + expiry + " day before expiry";
-        Debug.Log(desc);
+        price = ingredientData.ingredientPrice;
+
+        inventoryManager = GameObject.FindFirstObjectByType<InventoryManager>();
+    }
+
+    public void AddToInventory()
+    {
+        inventoryManager.AddIngredient(ingredientData);
+        Debug.Log("Added to Inventory");
     }
 }

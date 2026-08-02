@@ -7,5 +7,4 @@ public class IngredientSO : ScriptableObject
     public Sprite ingredientSprite;
     public int ingredientPrice;
     public int ingredientExpiredTime;
-    public int ingredientQuantity;
 }
