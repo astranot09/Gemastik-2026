@@ -36,6 +36,7 @@ public class StatisticManager : MonoBehaviour
 
     [SerializeField] private int maxEvent;
     [SerializeField] private List<StatisticEventType> currentEvents = new();
+    public List<StatisticEventType> CurrentEvents => currentEvents;
 
     [SerializeField] private int refreshEvent = 3;
     [SerializeField] private int currEventLeft;
@@ -91,4 +92,9 @@ public class StatisticManager : MonoBehaviour
         }
     }
 
+    //public List<MenuSO> AllMenuThatSameWithEvent(List<MenuSO> currMenu)
+    //{
+    //    List<MenuSO> x = new List<MenuSO>();
+    //    foreach (MenuSO menu in allStatisticEvent) {
+    //}
 }

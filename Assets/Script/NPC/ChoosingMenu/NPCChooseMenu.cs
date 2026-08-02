@@ -1,16 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCChooseMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<MenuSO> allMenuCanBeOrdered = new List<MenuSO>();
 
-    // Update is called once per frame
-    void Update()
+    private void CheckTheMenu()
     {
-        
+        if(StatisticManager.instance.CurrentEvents.Count == 0)
+        {
+            //LiatMenunya
+        }
+        else
+        {
+
+        }
     }
 }
