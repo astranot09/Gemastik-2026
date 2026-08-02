@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -18,15 +19,17 @@ public class ShopManager : MonoBehaviour
 
     private void CreateIngredientListings()
     {
-        for (int i = 0; i < ingredientList.Count; i++)
+        foreach(IngredientSO ingredient in ingredientList)
         {
             GameObject newIngredient = Instantiate(shopItemPrefab, shopPanel.transform.position, Quaternion.identity, shopPanel.transform);
-            Ingredient ingredient = newIngredient.GetComponent<Ingredient>();
-            ShopIngredient ingredientVisual = newIngredient.GetComponent<ShopIngredient>();
             Debug.Log(newIngredient);
-            Debug.Log(ingredient);
-            ingredient.Initialize(ingredientList[i]);
-            ingredientVisual.CreateVisual(ingredientList[i]);
+            CreateShopItem(newIngredient, ingredient);
         }
+    }
+
+    private void CreateShopItem(GameObject ingredientObject, IngredientSO ingredientData)
+    {
+        ShopIngredient ingredient = ingredientObject.GetComponent<ShopIngredient>();
+        ingredient.CreateVisual(ingredientData);
     }
 }

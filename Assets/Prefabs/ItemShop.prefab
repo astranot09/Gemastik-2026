@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4586184851895663849}
-        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+      - m_Target: {fileID: 8778821890576449923}
+        m_TargetAssemblyTypeName: ShopIngredient, Assembly-CSharp
         m_MethodName: AddToInventory
         m_Mode: 1
         m_Arguments:
@@ -143,7 +143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4907268278399471314}
   - component: {fileID: 8778821890576449923}
-  - component: {fileID: 4586184851895663849}
   m_Layer: 5
   m_Name: ItemShop
   m_TagString: Untagged
@@ -187,19 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientText: {fileID: 2411481995988511944}
   ingredientImage: {fileID: 6418423287355789091}
---- !u!114 &4586184851895663849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3631211346992944959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51790d8db53db2b4b9ab036017d886ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientData: {fileID: 0}
 --- !u!1 &4630602185707375423
 GameObject:
   m_ObjectHideFlags: 0

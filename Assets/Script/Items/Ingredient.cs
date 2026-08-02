@@ -2,30 +2,36 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ingredient : MonoBehaviour
+[System.Serializable]
+public class Ingredient
 {
-    [Header("Read Only")]
-    [SerializeField] protected IngredientSO ingredientData = null;
+    public IngredientSO data;
+    public int quantity;
+    public int expiry;
 
-    protected InventoryManager inventoryManager;
-    protected string name;
-    protected Sprite sprite;
-    protected int expiry;
-    protected int price;
-    public virtual void Initialize(IngredientSO ingredientSO)
+    public Ingredient(IngredientSO ingredientSO)
     {
-        ingredientData = ingredientSO;
-        name = ingredientData.ingredientName;
-        sprite = ingredientData.ingredientSprite;
-        expiry = ingredientData.ingredientExpiredTime;
-        price = ingredientData.ingredientPrice;
-
-        inventoryManager = GameObject.FindFirstObjectByType<InventoryManager>();
+        data = ingredientSO;
+        quantity = 1;
+        expiry = ingredientSO.ingredientExpiredTime;
     }
 
-    public void AddToInventory()
+    public void AddQuantity(int amount = 1)
     {
-        inventoryManager.AddIngredient(ingredientData);
-        Debug.Log("Added to Inventory");
+        quantity += amount;
+    }
+
+    public void DecreaseQuantity(int amount = 1)
+    {
+        quantity -= amount;
+    }
+
+    public void DecreaseExpiry()
+    {
+        expiry--;
+        if (expiry <= 0)
+        {
+            //ingredient gone
+        }
     }
 }

@@ -4,22 +4,38 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance;
     [SerializeField] private GameObject contentPanel;
     [SerializeField] private GameObject ingredientPrefab;
 
-    private Dictionary<IngredientSO, int> ingredientList = new();
+    private Dictionary<IngredientSO, Ingredient> ingredientList = new();
+    private Dictionary<IngredientSO, InventoryIngredient> ingredientUIList = new();
 
-    public void AddIngredient(IngredientSO ingredient)
+    private void Awake()
     {
-        if (ingredientList.ContainsKey(ingredient))
+        if (Instance == null)
         {
-            ingredientList[ingredient]++;
-            CreateVisual(ingredient, ingredientList[ingredient]);
+            Instance = this;
         }
         else
         {
-            ingredientList.Add(ingredient, 1);
-            CreateVisual(ingredient, ingredientList[ingredient]);
+            Destroy(gameObject);
+        }
+    }
+
+    public void AddIngredient(IngredientSO ingredientSO)
+    {
+        if (ingredientList.TryGetValue(ingredientSO, out Ingredient ingredient))
+        {
+            ingredient.AddQuantity();
+            UpdateVisual(ingredient);
+        }
+        else
+        {
+            ingredient = new Ingredient(ingredientSO);
+
+            ingredientList.Add(ingredientSO, ingredient);
+            CreateVisual(ingredient);
         }
 
         foreach (var pair in ingredientList)
@@ -28,15 +44,39 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void CreateVisual(IngredientSO ingredientData, int qty)
+    public void DecreaseIngredient(IngredientSO ingredientSO)
+    {
+        if (ingredientList.TryGetValue(ingredientSO, out Ingredient ingredient))
+        {
+            ingredient.DecreaseQuantity();
+            UpdateVisual(ingredient);
+        }
+        else
+        {
+            ingredient = new Ingredient(ingredientSO);
+
+            ingredientList.Add(ingredientSO, ingredient);
+            CreateVisual(ingredient);
+        }
+
+        foreach (var pair in ingredientList)
+        {
+            Debug.Log($"{pair.Key.ingredientName}: {pair.Value}");
+        }
+    }
+
+
+
+    private void CreateVisual(Ingredient ingredientData)
     {
         GameObject newIngredient = Instantiate(ingredientPrefab, contentPanel.transform.position, Quaternion.identity, contentPanel.transform);
         InventoryIngredient ingredient = newIngredient.GetComponent<InventoryIngredient>();
-        ingredient.CreateVisual(ingredientData, qty);
+        ingredient.CreateVisual(ingredientData);
+        ingredientUIList.Add(ingredientData.data, ingredient);
     }
 
-    private void UpdateVisual(IngredientSO ingredientData, int qty)
+    private void UpdateVisual(Ingredient ingredientData)
     {
-
+        ingredientUIList[ingredientData.data].UpdateVisual(ingredientData);
     }
 }
