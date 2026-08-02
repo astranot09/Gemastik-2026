@@ -403,6 +403,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
     - {fileID: 11400000, guid: b16f20b2c9510b747bca2acd3215aaa8, type: 2}
     - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
+  maxEvent: 2
+  currentEvents: 
 --- !u!4 &760101658
 Transform:
   m_ObjectHideFlags: 0
