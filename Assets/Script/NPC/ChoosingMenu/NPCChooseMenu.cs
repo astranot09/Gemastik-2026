@@ -7,6 +7,10 @@ public class NPCChooseMenu : MonoBehaviour
     [SerializeField] private List<MenuSO> availableRestaurantMenu = new List<MenuSO>();
     [SerializeField] private List<MenuSO> allMenuCanBeOrdered = new List<MenuSO>();
 
+
+    [Header("Status")]
+    [SerializeField] private bool lookedMenu = false;
+
     private void Start()
     {
         CheckListRestaurantMenu();
@@ -35,11 +39,15 @@ public class NPCChooseMenu : MonoBehaviour
                 .ToList();
         }
 
-        // Optional fallback: If no items match active events, fall back to full menu so NPCs don't starve!
         if (allMenuCanBeOrdered.Count == 0)
         {
-            allMenuCanBeOrdered = new List<MenuSO>(availableRestaurantMenu);
+            NPCDisappointed();
         }
+        else
+        {
+            NPCHappyEatFood();
+        }
+        
     }
 
     public MenuSO GetRandomChoice()
@@ -49,6 +57,15 @@ public class NPCChooseMenu : MonoBehaviour
 
         int randomIndex = Random.Range(0, allMenuCanBeOrdered.Count);
         return allMenuCanBeOrdered[randomIndex];
+    }
+
+    public void NPCDisappointed()
+    {
+        Debug.Log("Ga ada makanannya :(");
+    }
+    public void NPCHappyEatFood()
+    {
+        Debug.Log(GetRandomChoice().ToString());
     }
 
 }

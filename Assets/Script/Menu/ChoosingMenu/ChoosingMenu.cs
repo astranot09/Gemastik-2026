@@ -14,6 +14,8 @@ public class ChoosingMenu : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
+
     [Header("Data")]
     [SerializeField] private List<MenuSO> allRestaurantMenu = new List<MenuSO>();
     [SerializeField] private List<MenuSO> menuSelected = new List<MenuSO>();
@@ -56,6 +58,10 @@ public class ChoosingMenu : MonoBehaviour
         menuSelected.Remove(menu);
     }
 
+    public void AddNewMenu(MenuSO menu)
+    {
+        allRestaurantMenu.Add(menu);
+    }
 
     //public void SubmitSelected()
     //{

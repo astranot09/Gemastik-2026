@@ -1243,6 +1243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890036336}
   - component: {fileID: 1890036335}
+  - component: {fileID: 1890036337}
   m_Layer: 0
   m_Name: MenuBookManager
   m_TagString: Untagged
@@ -1263,15 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allRestaurantMenu:
-  - {fileID: 11400000, guid: 713fff45946d22240b330ff9fdf9d0d8, type: 2}
-  - {fileID: 11400000, guid: a4835d54f7dc9b64e8a257adac8a0b3d, type: 2}
   - {fileID: 11400000, guid: f34c616838c55e6408ecaa164c494400, type: 2}
-  - {fileID: 11400000, guid: 4ec63b4e460d1cd45ad1bff20937828a, type: 2}
-  - {fileID: 11400000, guid: d703f33153a966b4aa95832aae9475c4, type: 2}
-  - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
-  - {fileID: 11400000, guid: b16f20b2c9510b747bca2acd3215aaa8, type: 2}
-  - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
-  - {fileID: 11400000, guid: 1e3cc58161270da4abc542e9a12c9da8, type: 2}
   - {fileID: 11400000, guid: 458eb146c2277c3468a0784fa5666dda, type: 2}
   menuSelected: []
   menuPrefab: {fileID: 4901934491335228968, guid: 9193ade5d2636c64788873a5cb8a6eeb, type: 3}
@@ -1292,6 +1285,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1890036337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890036334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98637151749160d49a647584aad1b003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day4NewMenu:
+  - {fileID: 11400000, guid: d703f33153a966b4aa95832aae9475c4, type: 2}
+  - {fileID: 11400000, guid: a4835d54f7dc9b64e8a257adac8a0b3d, type: 2}
+  - {fileID: 11400000, guid: 4ec63b4e460d1cd45ad1bff20937828a, type: 2}
+  - {fileID: 11400000, guid: 713fff45946d22240b330ff9fdf9d0d8, type: 2}
+  day8NewMenu:
+  - {fileID: 11400000, guid: 40481ddf401b6a74ba11929674e76c3b, type: 2}
+  - {fileID: 11400000, guid: b16f20b2c9510b747bca2acd3215aaa8, type: 2}
+  day17NewMenu:
+  - {fileID: 11400000, guid: eab11f116ce934d40b682dd9b48b0aaa, type: 2}
+  - {fileID: 11400000, guid: 1e3cc58161270da4abc542e9a12c9da8, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
