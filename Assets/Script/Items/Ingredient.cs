@@ -9,11 +9,14 @@ public class Ingredient
     public int quantity;
     public int expiry;
 
+    public InventoryIngredient ui;
+
     public Ingredient(IngredientSO ingredientSO)
     {
         data = ingredientSO;
         quantity = 1;
         expiry = ingredientSO.ingredientExpiredTime;
+
     }
 
     public void AddQuantity(int amount = 1)
@@ -21,17 +24,15 @@ public class Ingredient
         quantity += amount;
     }
 
-    public void DecreaseQuantity(int amount = 1)
+    public int DecreaseQuantity(int amount = 1)
     {
         quantity -= amount;
+        return quantity;
     }
 
-    public void DecreaseExpiry()
+    public int DecreaseExpiry()
     {
         expiry--;
-        if (expiry <= 0)
-        {
-            //ingredient gone
-        }
+        return expiry;
     }
 }

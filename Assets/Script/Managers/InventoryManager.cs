@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -8,8 +9,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject contentPanel;
     [SerializeField] private GameObject ingredientPrefab;
 
-    private Dictionary<IngredientSO, Ingredient> ingredientList = new();
-    private Dictionary<IngredientSO, InventoryIngredient> ingredientUIList = new();
+    private Dictionary<IngredientSO, List<Ingredient>> ingredientList = new();
+
 
     private void Awake()
     {
@@ -25,58 +26,96 @@ public class InventoryManager : MonoBehaviour
 
     public void AddIngredient(IngredientSO ingredientSO)
     {
-        if (ingredientList.TryGetValue(ingredientSO, out Ingredient ingredient))
+        if (!ingredientList.TryGetValue(ingredientSO, out List<Ingredient> stacks))
         {
-            ingredient.AddQuantity();
-            UpdateVisual(ingredient);
+            stacks = new List<Ingredient>();
+            ingredientList.Add(ingredientSO, stacks);
+        }
+
+        Ingredient existing = stacks.Find(x => x.expiry == ingredientSO.ingredientExpiredTime);
+
+        if (existing != null)
+        {
+            existing.AddQuantity();
+            existing.ui.UpdateVisual(existing);
         }
         else
         {
-            ingredient = new Ingredient(ingredientSO);
+            Ingredient ingredient = new Ingredient(ingredientSO);
 
-            ingredientList.Add(ingredientSO, ingredient);
+            stacks.Add(ingredient);
             CreateVisual(ingredient);
-        }
-
-        foreach (var pair in ingredientList)
-        {
-            Debug.Log($"{pair.Key.ingredientName}: {pair.Value}");
         }
     }
 
     public void DecreaseIngredient(IngredientSO ingredientSO)
     {
-        if (ingredientList.TryGetValue(ingredientSO, out Ingredient ingredient))
+        if (ingredientList.TryGetValue(ingredientSO, out List<Ingredient> stacks))
         {
+            Ingredient ingredient = stacks.OrderBy(i => i.expiry).First();
+
             ingredient.DecreaseQuantity();
+
             UpdateVisual(ingredient);
-        }
-        else
-        {
-            ingredient = new Ingredient(ingredientSO);
 
-            ingredientList.Add(ingredientSO, ingredient);
-            CreateVisual(ingredient);
-        }
-
-        foreach (var pair in ingredientList)
-        {
-            Debug.Log($"{pair.Key.ingredientName}: {pair.Value}");
+            if (ingredient.quantity <= 0)
+            {
+                ReducedToAtoms(ingredient);
+            }
         }
     }
 
-
-
-    private void CreateVisual(Ingredient ingredientData)
+    public void DecreaseExpiry()
     {
-        GameObject newIngredient = Instantiate(ingredientPrefab, contentPanel.transform.position, Quaternion.identity, contentPanel.transform);
-        InventoryIngredient ingredient = newIngredient.GetComponent<InventoryIngredient>();
-        ingredient.CreateVisual(ingredientData);
-        ingredientUIList.Add(ingredientData.data, ingredient);
+        List<Ingredient> expired = new();
+
+        foreach (List<Ingredient> stacks in ingredientList.Values)
+        {
+            foreach (Ingredient ingredient in stacks)
+            {
+                if (ingredient.DecreaseExpiry() <= 0)
+                {
+                    expired.Add(ingredient);
+                }
+                else
+                {
+                    ingredient.ui.UpdateVisual(ingredient);
+                }
+            }
+        }
+
+        foreach (Ingredient ingredient in expired)
+        {
+            ThrowIngredient(ingredient);
+        }
     }
 
-    private void UpdateVisual(Ingredient ingredientData)
+    private void ReducedToAtoms(Ingredient ingredient)
     {
-        ingredientUIList[ingredientData.data].UpdateVisual(ingredientData);
+        Destroy(ingredient.ui.gameObject);
+        ingredientList[ingredient.data].Remove(ingredient);
+        if (ingredientList[ingredient.data].Count == 0)
+        {
+            ingredientList.Remove(ingredient.data);
+        }
+    }
+
+    private void ThrowIngredient(Ingredient ingredient)
+    {
+        WasteManager.instance.WasteIngredient(ingredient.quantity, ingredient.data);
+        ReducedToAtoms(ingredient);
+    }
+
+    private void CreateVisual(Ingredient ingredient)
+    {
+        GameObject obj = Instantiate(ingredientPrefab, contentPanel.transform.position, Quaternion.identity, contentPanel.transform);
+        InventoryIngredient ui = obj.GetComponent<InventoryIngredient>();
+        ingredient.ui = ui;
+        ui.CreateVisual(ingredient);
+    }
+
+    private void UpdateVisual(Ingredient ingredient)
+    {
+        ingredient.ui.UpdateVisual(ingredient);
     }
 }
