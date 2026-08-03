@@ -72,7 +72,12 @@ public class NPCChooseMenu : MonoBehaviour
     }
     public void NPCHappyEatFood()
     {
-        Debug.Log(GetRandomChoice().ToString());
+        MenuSO x = GetRandomChoice();
+        Debug.Log(x.ToString());
+        if(RecapManager.instance!= null)
+        {
+            RecapManager.instance.AddRecapMenu(x);
+        }
     }
 
 }
