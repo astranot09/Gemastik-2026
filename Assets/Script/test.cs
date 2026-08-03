@@ -12,4 +12,9 @@ public class test : MonoBehaviour
     {
         InventoryManager.Instance.DecreaseIngredient(ingredient);
     }
+
+    public void testSpawnNPC()
+    {
+        NPCManager.instance.SpawnNPC();
+    }
 }
