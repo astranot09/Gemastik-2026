@@ -45,6 +45,8 @@ public class RecapManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    [SerializeField] private GameObject recapPanel;
+
     [Header("Recap Food")]
     [SerializeField] private List<RecapMenuClass> recapList = new List<RecapMenuClass>();
     [SerializeField] private GameObject menuRecapPrefab;
@@ -55,6 +57,21 @@ public class RecapManager : MonoBehaviour
     [SerializeField] private List<RecapIngredientClass> ingredientList = new List<RecapIngredientClass>();
     [SerializeField] private GameObject ingredientRecapPrefab;
     [SerializeField] private Transform ingredientRecapTransform;
+
+
+    [Header("Reference")]
+    [SerializeField] private GameManager gameManager;
+
+
+    private void OnEnable()
+    {
+        gameManager.OnDayEnd += SetUpRecapUI;
+    }
+    private void OnDisable()
+    {
+        gameManager.OnDayEnd -= SetUpRecapUI;
+    }
+
     public void AddRecapMenu(MenuSO menuSO)
     {
         if (menuSO == null) return;
@@ -85,13 +102,21 @@ public class RecapManager : MonoBehaviour
 
     public void SetUpRecapUI()
     {
-        foreach(RecapMenuClass recap in recapList)
+        Debug.Log("PPPPPPPPPPPPP");
+        recapPanel.SetActive(true);
+
+        foreach (RecapMenuClass recap in recapList)
         {
             GameObject x = Instantiate(menuRecapPrefab, menuRecapTransform);
             x.GetComponent<RecapMenuPrefab>().SetUpRecapMenuPrefab(recap);
         }
     }
-
+    public void CloseRecapUI()
+    {
+        ResetRecapMenu();
+        recapPanel.SetActive(false);
+        GameManager.instance.NextDay();
+    }
 
     // ================= INGREDIENT ==================
 

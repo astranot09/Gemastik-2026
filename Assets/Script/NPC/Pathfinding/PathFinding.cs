@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class PathFinding : MonoBehaviour
@@ -8,6 +7,10 @@ public class PathFinding : MonoBehaviour
     [SerializeField] private float speed;
     private TablePath assignedTable;
     private bool isGoingHome = false;
+    private bool reachTable = true;
+
+    [Header("Reference")]
+    [SerializeField] private NPCChooseMenu chooseMenu;
 
     private void Update()
     {
@@ -36,8 +39,17 @@ public class PathFinding : MonoBehaviour
 
             if (currPoint >= points.Length)
             {
-                //ReachTable();
-                GetOut();
+                if (!reachTable)
+                {
+                    GetOut();
+                }
+                    
+                else if (reachTable)
+                {
+                    ReachTable();
+
+                }
+
             }
         }
     }
@@ -49,8 +61,23 @@ public class PathFinding : MonoBehaviour
         currPoint = 0;
     }
 
+    public void ReachTable()
+    {
+        //chooseMenu.CheckListRestaurantMenu();
+
+    }
+
+    public void WantToGetOut()
+    {
+        Debug.Log("Selesai");
+        reachTable = false;
+        GameManager.instance.NPCFinishAtRestaurant();
+        GetOut();
+    }
+
     public void GetOut()
     {
+        Debug.Log("Keluar");
         isGoingHome = true;
         currPoint = points.Length - 1;
         assignedTable.Vacate();

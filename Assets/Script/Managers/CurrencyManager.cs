@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
@@ -17,16 +18,21 @@ public class CurrencyManager : MonoBehaviour
 
     [Header("Challenge")]
     [SerializeField] private int baseTargetMoney;
+    public int BaseTargetMoney => baseTargetMoney;
     [SerializeField] private int multiplicationTargetMoney = 5;
+
+    public event Action OnCurrencyChanged;
 
     public void AddMoney(int value)
     {
         money += value;
+        OnCurrencyChanged?.Invoke();
     }
 
     public void RemoveMoney(int value)
     {
         money -= value;
+        OnCurrencyChanged?.Invoke();
     }
 
     public bool CheckingBalance(int value)
@@ -48,7 +54,14 @@ public class CurrencyManager : MonoBehaviour
         else
         {
             Debug.Log("Lanjut");
+            UpdateTargetCurrency();
         }
+    }
+
+    public void UpdateTargetCurrency()
+    {
+        baseTargetMoney *= multiplicationTargetMoney;
+        OnCurrencyChanged?.Invoke();
     }
 
 }

@@ -16,6 +16,7 @@ public class TableScript : MonoBehaviour
     {
         if (collision.CompareTag("NPC"))
         {
+            collision.GetComponent<CircleCollider2D>().enabled = false;
             collision.GetComponent<NPCChooseMenu>().LeaveTable();
         }
     }

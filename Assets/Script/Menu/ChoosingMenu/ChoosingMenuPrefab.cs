@@ -32,4 +32,9 @@ public class ChoosingMenuPrefab : MonoBehaviour
             buttonImage.color = Color.white;
         }
     }
+
+    public void OpenDescription()
+    {
+        ChoosingMenu.instance.OpenDescriptionMenu(menuSO);
+    }
 }

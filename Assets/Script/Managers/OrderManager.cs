@@ -124,6 +124,11 @@ public class OrderManager : MonoBehaviour
         yield return new WaitForSeconds(delayPerCooking);
         GameObject x = Instantiate(foodPrefab, foodTransform.position, Quaternion.identity);
         x.GetComponent<FoodToNPC>().SetUpFood(menu.menuSprite, pathOrder);
+
+        if (RecapManager.instance != null)
+        {
+            RecapManager.instance.AddRecapMenu(menu);
+        }
     }
 
 }

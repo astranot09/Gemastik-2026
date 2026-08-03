@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuSO : ScriptableObject
 {
     public string menuName;
+    public string menuDescription;
     public Sprite menuSprite;
     public List<IngredientSO> listIngredient;
     public int menuPrice;

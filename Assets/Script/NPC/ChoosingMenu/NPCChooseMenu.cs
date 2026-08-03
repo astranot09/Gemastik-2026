@@ -16,10 +16,8 @@ public class NPCChooseMenu : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
 
-    private void Start()
-    {
-        
-    }
+    [Header("Reference")]
+    [SerializeField] private PathFinding pathFinding;
 
     public void SitAtTable(List<Transform> foodPath)
     {
@@ -87,10 +85,7 @@ public class NPCChooseMenu : MonoBehaviour
     {
         MenuSO x = GetRandomChoice();
         Debug.Log(x.ToString());
-        if(RecapManager.instance!= null)
-        {
-            RecapManager.instance.AddRecapMenu(x);
-        }
+
         if(OrderManager.instance != null)
         {
             OrderManager.instance.AddOrdered(x, this, foodPathList);
@@ -107,6 +102,7 @@ public class NPCChooseMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         Debug.Log("NPC GW PERGI >:(");
+        pathFinding.WantToGetOut();
     }
 
 }

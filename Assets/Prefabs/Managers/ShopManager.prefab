@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8728794657469901224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7672772492846545925}
+  - component: {fileID: 8110638453372960355}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7672772492846545925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728794657469901224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.2192616, y: -0.12921381, z: 4.7792554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8110638453372960355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728794657469901224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d59c764e84ca4448c202ef70a48ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientList:
+  - {fileID: 11400000, guid: 2f30b5c125f3f174198064058cb25a1b, type: 2}
+  - {fileID: 11400000, guid: 7487c14c076b64745bded561305e85bd, type: 2}
+  - {fileID: 11400000, guid: be1c612af530ed041ac9089574ce104e, type: 2}
+  - {fileID: 11400000, guid: ae510aef6f10641448a8a0e278ad45fd, type: 2}
+  - {fileID: 11400000, guid: 083fd2cf975f1184785afda13655662a, type: 2}
+  - {fileID: 11400000, guid: b3e2f4604fd87a343b32e4467820bc1c, type: 2}
+  - {fileID: 11400000, guid: 9cd63103585e1e1479cbf4065be5f14b, type: 2}
+  - {fileID: 11400000, guid: f0be61e8a9762e940aae1998505595a4, type: 2}
+  - {fileID: 11400000, guid: acb142f6d8e2fd44d88c0a9c168b8f9b, type: 2}
+  - {fileID: 11400000, guid: 3fe24f119ace64245ab1ee96c9032fcf, type: 2}
+  shopPanel: {fileID: 0}
+  shopItemPrefab: {fileID: 3631211346992944959, guid: 01bd1fc585188ea4c919a81d069e499a, type: 3}
