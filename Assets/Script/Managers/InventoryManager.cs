@@ -130,7 +130,7 @@ public class InventoryManager : MonoBehaviour
 
         return stacks.Sum(x => x.quantity);
     }
-    public bool TryRemoveIngredient(IngredientSO ingredientSO, int amount)
+    public bool TryToCheckIngredient(IngredientSO ingredientSO, int amount)
     {
         // Cek apakah total stok cukup
         if (GetTotalQuantity(ingredientSO) < amount)
@@ -139,9 +139,20 @@ public class InventoryManager : MonoBehaviour
             return false;
         }
 
+        return true;
+    }
+    public void RemoveTheIngredientFromInventory(IngredientSO ingredientSO, int amount)
+    {
+        // Safety Guard 1: Cek apakah bahan terdaftar dan stok cukup
+        if (!TryToCheckIngredient(ingredientSO, amount))
+        {
+            Debug.LogError($"[InventoryManager] Gagal menghapus {ingredientSO.name}. Stok kurang atau tidak ditemukan!");
+            return;
+        }
+
         List<Ingredient> stacks = ingredientList[ingredientSO];
 
-        // Urutkan berdasarkan expiry terkecil (paling cepat kadaluarsa)
+        // Urutkan berdasarkan expiry terkecil (paling cepat kadaluarsa / FIFO)
         List<Ingredient> sortedStacks = stacks.OrderBy(i => i.expiry).ToList();
 
         int remainingToRemove = amount;
@@ -165,7 +176,5 @@ public class InventoryManager : MonoBehaviour
                 UpdateVisual(ingredient);
             }
         }
-
-        return true;
     }
 }
