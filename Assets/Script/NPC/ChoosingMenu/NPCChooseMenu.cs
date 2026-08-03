@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,20 +11,31 @@ public class NPCChooseMenu : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] private bool lookedMenu = false;
+    [SerializeField] private List<Transform> foodPathList;
 
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
 
     private void Start()
     {
+        
+    }
+
+    public void SitAtTable(List<Transform> foodPath)
+    {
+        foodPathList = foodPath;
         CheckListRestaurantMenu();
     }
+
 
     public void CheckListRestaurantMenu()
     {
         availableRestaurantMenu.Clear();
         allMenuCanBeOrdered.Clear();
-        availableRestaurantMenu = ChoosingMenu.instance.MenuSelected;
+        if (ChoosingMenu.instance != null && ChoosingMenu.instance.MenuSelected != null)
+        {
+            availableRestaurantMenu = new List<MenuSO>(ChoosingMenu.instance.MenuSelected);
+        }
         CheckTheMenu();
     }
 
@@ -69,6 +81,7 @@ public class NPCChooseMenu : MonoBehaviour
         {
             PopularityManager.instance.DecreasePopularity(decreasePopularityValue);
         }
+        StartCoroutine(NPCLeaveRestaurant());
     }
     public void NPCHappyEatFood()
     {
@@ -78,6 +91,22 @@ public class NPCChooseMenu : MonoBehaviour
         {
             RecapManager.instance.AddRecapMenu(x);
         }
+        if(OrderManager.instance != null)
+        {
+            OrderManager.instance.AddOrdered(x, this, foodPathList);
+        }
+    }
+
+
+    public void LeaveTable()
+    {
+        foodPathList.Clear();
+    }
+
+    IEnumerator NPCLeaveRestaurant()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("NPC GW PERGI >:(");
     }
 
 }
