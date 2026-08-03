@@ -118,4 +118,54 @@ public class InventoryManager : MonoBehaviour
     {
         ingredient.ui.UpdateVisual(ingredient);
     }
+
+    // =============== BUAT AMBIL QUANTITY DAN CEK ==================================
+
+    public int GetTotalQuantity(IngredientSO ingredientSO)
+    {
+        if (!ingredientList.TryGetValue(ingredientSO, out List<Ingredient> stacks))
+        {
+            return 0;
+        }
+
+        return stacks.Sum(x => x.quantity);
+    }
+    public bool TryRemoveIngredient(IngredientSO ingredientSO, int amount)
+    {
+        // Cek apakah total stok cukup
+        if (GetTotalQuantity(ingredientSO) < amount)
+        {
+            Debug.LogWarning($"Stok {ingredientSO.name} tidak cukup! Butuh: {amount}");
+            return false;
+        }
+
+        List<Ingredient> stacks = ingredientList[ingredientSO];
+
+        // Urutkan berdasarkan expiry terkecil (paling cepat kadaluarsa)
+        List<Ingredient> sortedStacks = stacks.OrderBy(i => i.expiry).ToList();
+
+        int remainingToRemove = amount;
+
+        foreach (Ingredient ingredient in sortedStacks)
+        {
+            if (remainingToRemove <= 0) break;
+
+            if (ingredient.quantity <= remainingToRemove)
+            {
+                // Ambil seluruh kuantitas stack ini
+                remainingToRemove -= ingredient.quantity;
+                ingredient.quantity = 0;
+                ReducedToAtoms(ingredient);
+            }
+            else
+            {
+                // Ambil sebagian dari stack ini
+                ingredient.DecreaseQuantity(remainingToRemove);
+                remainingToRemove = 0;
+                UpdateVisual(ingredient);
+            }
+        }
+
+        return true;
+    }
 }
