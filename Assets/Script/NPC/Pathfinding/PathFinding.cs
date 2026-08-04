@@ -63,8 +63,7 @@ public class PathFinding : MonoBehaviour
 
     public void ReachTable()
     {
-        //chooseMenu.CheckListRestaurantMenu();
-
+        chooseMenu.CheckListRestaurantMenu();
     }
 
     public void WantToGetOut()

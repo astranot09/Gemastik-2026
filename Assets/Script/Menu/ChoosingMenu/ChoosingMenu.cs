@@ -43,6 +43,7 @@ public class ChoosingMenu : MonoBehaviour
     [SerializeField] private Image menuIcon;
     [SerializeField] private TMP_Text menuName;
     [SerializeField] private TMP_Text menuDescription;
+    [SerializeField] private TMP_Text ingredientTextTitle;
     [SerializeField] private GameObject ingredientPrefab;
     [SerializeField] private Transform ingredientPrefabSpawner;
 
@@ -116,6 +117,7 @@ public class ChoosingMenu : MonoBehaviour
     {
         menuIcon.enabled = false;
         menuName.text = string.Empty;
+        ingredientTextTitle.enabled = false;
         menuDescription.text = string.Empty;
         for (int i = ingredientPrefabSpawner.childCount - 1; i >= 0; i--)
         {
@@ -129,6 +131,7 @@ public class ChoosingMenu : MonoBehaviour
         menuIcon.enabled = true;
         menuIcon.sprite = menu.menuSprite;
         menuName.text = menu.menuName;
+        ingredientTextTitle.enabled = true;
         menuDescription.text = menu.menuDescription;
         foreach(IngredientSO x in menu.listIngredient)
         {

@@ -15,7 +15,8 @@ public class ChoosingMenuPrefab : MonoBehaviour
     {
         menuSO = menu;
         isSelected = false;
-        menuName.text = menu.menuName;
+        menuIcon.sprite = menuSO.menuSprite;
+        menuName.text = menuSO.menuName;
     }
     public void OnChoose()
     {

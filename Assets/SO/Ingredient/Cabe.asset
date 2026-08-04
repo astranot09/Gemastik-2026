@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cabe
   m_EditorClassIdentifier: 
   ingredientName: Cabe
-  ingredientSprite: {fileID: 0}
+  ingredientSprite: {fileID: 21300000, guid: d008cb4ad7ff6f64994bfaa89b484137, type: 3}
   ingredientPrice: 4
   ingredientExpiredTime: 3

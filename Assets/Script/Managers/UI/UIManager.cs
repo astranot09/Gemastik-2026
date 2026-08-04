@@ -116,7 +116,7 @@ public class UIManager : MonoBehaviour
     public void UpdateProfileUI()
     {
         if(CurrencyManager.instance == null) return;
-        currencyText.text = $"{CurrencyManager.instance.Money}/{CurrencyManager.instance.BaseTargetMoney}";
+        currencyText.text = $"Rp.{CurrencyManager.instance.Money}k / Rp.{CurrencyManager.instance.BaseTargetMoney}k";
         if(GameManager.instance == null) return;
         dayText.text = $"Day : {GameManager.instance.Day}";
     }

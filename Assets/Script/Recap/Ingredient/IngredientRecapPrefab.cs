@@ -17,6 +17,6 @@ public class IngredientRecapPrefab : MonoBehaviour
         recapIngredientData = data;
         ingredientIcon.sprite = recapIngredientData.ingredient.ingredientSprite;
         ingredientName.text = recapIngredientData.ingredient.ingredientName;
-        ingredientCount.text = $"{recapIngredientData.quantity} / {recapIngredientData.quantity}"; //tinggal ganti pas awal mulai
+        ingredientCount.text = $"{recapIngredientData.quantity} / {recapIngredientData.maxQuantity}"; //tinggal ganti pas awal mulai
     }
 }

@@ -8,13 +8,11 @@ public class Order
 {
     public MenuSO menu;
     public NPCChooseMenu npc;
-    public List<Transform> path;
 
-    public Order (MenuSO menuSO, NPCChooseMenu from, List<Transform> pathOrder)
+    public Order (MenuSO menuSO, NPCChooseMenu from)
     {
         this.menu = menuSO;
         this.npc = from;
-        this.path = pathOrder;
     }
 }
 
@@ -43,10 +41,10 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private float delayPerOrder = 0.5f;
     Coroutine orderCoroutine;
 
-    public void AddOrdered(MenuSO menu, NPCChooseMenu from, List<Transform> pathOrder)
+    public void AddOrdered(MenuSO menu, NPCChooseMenu from)
     {
         // FIX 1: Masukkan order ke list
-        Order order = new Order(menu, from, pathOrder);
+        Order order = new Order(menu, from);
         orderList.Add(order);
 
         // FIX 2: Jalankan Coroutine antrean jika belum berjalan
@@ -54,7 +52,7 @@ public class OrderManager : MonoBehaviour
     }
 
 
-    public void CheckOrdered(MenuSO menu, NPCChooseMenu from, List<Transform> pathOrder)
+    public void CheckOrdered(MenuSO menu, NPCChooseMenu from)
     {
         if (InventoryManager.Instance != null)
         {
@@ -70,7 +68,7 @@ public class OrderManager : MonoBehaviour
 
             if (cukupSemuaIngredient)
             {
-                AcceptOrdered(menu,from, pathOrder);
+                AcceptOrdered(menu,from);
             }
             else
             {
@@ -96,7 +94,7 @@ public class OrderManager : MonoBehaviour
             Order currentOrder = orderList[0];
             orderList.RemoveAt(0);
 
-            CheckOrdered(currentOrder.menu, currentOrder.npc, currentOrder.path);
+            CheckOrdered(currentOrder.menu, currentOrder.npc);
         }
 
         // Reset reference coroutine jika antrean sudah habis
@@ -109,25 +107,30 @@ public class OrderManager : MonoBehaviour
         from.NPCDisappointed();
     }
 
-    public void AcceptOrdered(MenuSO menu, NPCChooseMenu from, List<Transform> pathOrder)
+    public void AcceptOrdered(MenuSO menu, NPCChooseMenu from)
     {
         foreach(IngredientSO ingredientSO in menu.listIngredient)
         {
             InventoryManager.Instance.RemoveTheIngredientFromInventory(ingredientSO,1);
         }
 
-        StartCoroutine(SpawnFood(menu, from, pathOrder));
+        StartCoroutine(SpawnFood(menu, from));
     }
 
-    public IEnumerator SpawnFood(MenuSO menu, NPCChooseMenu from, List<Transform> pathOrder)
+    public IEnumerator SpawnFood(MenuSO menu, NPCChooseMenu from)
     {
         yield return new WaitForSeconds(delayPerCooking);
-        GameObject x = Instantiate(foodPrefab, foodTransform.position, Quaternion.identity);
-        x.GetComponent<FoodToNPC>().SetUpFood(menu.menuSprite, pathOrder);
+        Debug.Log("Masak");
+        GameObject x = Instantiate(foodPrefab, from.foodPathList[0].position, Quaternion.identity);
+        x.GetComponent<FoodToNPC>().SetUpFood(menu.menuSprite, from.foodPathList, from);
 
         if (RecapManager.instance != null)
         {
             RecapManager.instance.AddRecapMenu(menu);
+            foreach(IngredientSO ingredientSO in menu.listIngredient)
+            {
+                RecapManager.instance.AddRecapIngredient(ingredientSO);
+            }
         }
     }
 

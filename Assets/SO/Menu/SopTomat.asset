@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SopTomat
   m_EditorClassIdentifier: 
   menuName: Sop Tomat
-  menuSprite: {fileID: 0}
+  menuDescription: 
+  menuSprite: {fileID: 21300000, guid: 57ffc623875a19045bdab152df00f76b, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: acb142f6d8e2fd44d88c0a9c168b8f9b, type: 2}
   - {fileID: 11400000, guid: 2f30b5c125f3f174198064058cb25a1b, type: 2}

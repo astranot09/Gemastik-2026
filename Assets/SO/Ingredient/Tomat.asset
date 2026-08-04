@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Tomat
   m_EditorClassIdentifier: 
   ingredientName: Tomat
-  ingredientSprite: {fileID: 0}
+  ingredientSprite: {fileID: 21300000, guid: 6831313fca445bc45b0473af467a560b, type: 3}
   ingredientPrice: 6
   ingredientExpiredTime: 2

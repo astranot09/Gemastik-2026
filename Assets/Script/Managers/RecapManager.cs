@@ -56,7 +56,7 @@ public class RecapManager : MonoBehaviour
     [Header("Recap Ingredient")]
     [SerializeField] private List<RecapIngredientClass> ingredientList = new List<RecapIngredientClass>();
     [SerializeField] private GameObject ingredientRecapPrefab;
-    [SerializeField] private Transform ingredientRecapTransform;
+    //[SerializeField] private Transform ingredientRecapTransform;
 
 
     [Header("Reference")]
@@ -66,11 +66,14 @@ public class RecapManager : MonoBehaviour
     private void OnEnable()
     {
         gameManager.OnDayEnd += SetUpRecapUI;
+        gameManager.OnGameStart += InitStartDayIngredient;
     }
     private void OnDisable()
     {
         gameManager.OnDayEnd -= SetUpRecapUI;
+        gameManager.OnGameStart -= InitStartDayIngredient;
     }
+
 
     public void AddRecapMenu(MenuSO menuSO)
     {
@@ -94,6 +97,7 @@ public class RecapManager : MonoBehaviour
     public void ResetRecapMenu()
     {
         recapList.Clear();
+        ingredientList.Clear();
         for (int i = menuRecapTransform.childCount - 1; i >= 0; i--)
         {
             Destroy(menuRecapTransform.GetChild(i).gameObject);
@@ -110,6 +114,11 @@ public class RecapManager : MonoBehaviour
             GameObject x = Instantiate(menuRecapPrefab, menuRecapTransform);
             x.GetComponent<RecapMenuPrefab>().SetUpRecapMenuPrefab(recap);
         }
+        foreach (RecapIngredientClass recap in ingredientList)
+        {
+            GameObject x = Instantiate(ingredientRecapPrefab, menuRecapTransform);
+            x.GetComponent<IngredientRecapPrefab>().SetUpRecapMenuPrefab(recap);
+        }
     }
     public void CloseRecapUI()
     {
@@ -119,6 +128,13 @@ public class RecapManager : MonoBehaviour
     }
 
     // ================= INGREDIENT ==================
+
+    public void InitStartDayIngredient()
+    {
+        Debug.Log("Init");
+        InitRecapIngredient(InventoryManager.Instance.GetAllIngredientSO());
+    }
+
 
     public void AddRecapIngredient(IngredientSO ingredientSO)
     {
@@ -143,7 +159,7 @@ public class RecapManager : MonoBehaviour
 
         foreach(IngredientSO ingredientInventory in listIngredientInventory)
         {
-            ingredientList.Add(new RecapIngredientClass(ingredientInventory, 0, 10)); // 10 diambil dari inventory, ambil pas start day
+            ingredientList.Add(new RecapIngredientClass(ingredientInventory, 0, InventoryManager.Instance.GetTotalQuantity(ingredientInventory))); // 10 diambil dari inventory, ambil pas start day
         }
 
 

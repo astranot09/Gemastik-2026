@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TableScript : MonoBehaviour
 {
-    [SerializeField] private List<Transform> foodPathList;
+    [SerializeField] private List<Transform> foodPathList = new List<Transform>();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,12 +12,11 @@ public class TableScript : MonoBehaviour
             collision.GetComponent<NPCChooseMenu>().SitAtTable(foodPathList);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("NPC"))
-        {
-            collision.GetComponent<CircleCollider2D>().enabled = false;
-            collision.GetComponent<NPCChooseMenu>().LeaveTable();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("NPC"))
+    //    {
+    //        collision.GetComponent<NPCChooseMenu>().LeaveTable();
+    //    }
+    //}
 }

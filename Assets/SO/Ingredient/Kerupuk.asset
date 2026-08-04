@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Kerupuk
   m_EditorClassIdentifier: 
   ingredientName: Kerupuk
-  ingredientSprite: {fileID: 0}
+  ingredientSprite: {fileID: 21300000, guid: 44333db8847681e44ac0827f987dbfaf, type: 3}
   ingredientPrice: 4
   ingredientExpiredTime: 3

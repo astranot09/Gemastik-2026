@@ -11,7 +11,8 @@ public class NPCChooseMenu : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] private bool lookedMenu = false;
-    [SerializeField] private List<Transform> foodPathList;
+    public List<Transform> foodPathList;
+    private MenuSO menuOrder;
 
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
@@ -22,7 +23,6 @@ public class NPCChooseMenu : MonoBehaviour
     public void SitAtTable(List<Transform> foodPath)
     {
         foodPathList = foodPath;
-        CheckListRestaurantMenu();
     }
 
 
@@ -85,10 +85,11 @@ public class NPCChooseMenu : MonoBehaviour
     {
         MenuSO x = GetRandomChoice();
         Debug.Log(x.ToString());
+        menuOrder = x;
 
         if(OrderManager.instance != null)
         {
-            OrderManager.instance.AddOrdered(x, this, foodPathList);
+            OrderManager.instance.AddOrdered(x, this);
         }
     }
 
@@ -97,9 +98,17 @@ public class NPCChooseMenu : MonoBehaviour
     {
         foodPathList.Clear();
     }
+    public void NPCHappyGettingFood()
+    {
+        CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
+        StartCoroutine(NPCLeaveRestaurant());
+    }
+
 
     IEnumerator NPCLeaveRestaurant()
     {
+        GetComponent<CircleCollider2D>().enabled = false;
+        foodPathList.Clear();
         yield return new WaitForSeconds(3f);
         Debug.Log("NPC GW PERGI >:(");
         pathFinding.WantToGetOut();

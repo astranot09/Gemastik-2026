@@ -189,4 +189,22 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    //public List<Ingredient> GetAllIngredients()
+    //{
+    //    List<Ingredient> allIngredients = new List<Ingredient>();
+
+    //    foreach (List<Ingredient> stacks in ingredientList.Values)
+    //    {
+    //        allIngredients.AddRange(stacks);
+    //    }
+
+    //    return allIngredients;
+    //}
+
+    public List<IngredientSO> GetAllIngredientSO()
+    {
+        return ingredientList.Keys.ToList();
+    }
+
 }
