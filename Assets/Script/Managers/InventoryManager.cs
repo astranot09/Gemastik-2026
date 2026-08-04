@@ -5,12 +5,24 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    [Header("Reference")]
+    [SerializeField] private GameManager gameManager;
+
     public static InventoryManager Instance;
     [SerializeField] private GameObject contentPanel;
     [SerializeField] private GameObject ingredientPrefab;
 
     private Dictionary<IngredientSO, List<Ingredient>> ingredientList = new();
 
+    private void OnEnable()
+    {
+        gameManager.OnDayStart += DecreaseExpiry;
+    }
+
+    private void OnDisable()
+    {
+        gameManager.OnDayStart -= DecreaseExpiry;
+    }
 
     private void Awake()
     {
