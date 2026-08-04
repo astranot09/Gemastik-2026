@@ -69,14 +69,16 @@ public class GameManager : MonoBehaviour
         while(currentNPCSpawn < maxNPCSpawn)
         {
             yield return new WaitForSeconds(delayPerSpawnNPC);
-            currentNPCSpawn++;
             NPCManager.instance.SpawnNPC();
         }
         yield return new WaitUntil(() => NPCFinish >= maxNPCSpawn);
         yield return new WaitForSeconds(3f);
         EndOfDay();
     }
-
+    public void NPCSpawnAtRestaurant()
+    {
+        currentNPCSpawn++;
+    }
     public void NPCFinishAtRestaurant()
     {
         NPCFinish++;

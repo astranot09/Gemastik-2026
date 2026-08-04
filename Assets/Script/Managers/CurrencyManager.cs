@@ -23,6 +23,21 @@ public class CurrencyManager : MonoBehaviour
 
     public event Action OnCurrencyChanged;
 
+    [Header("Reference")]
+    [SerializeField] private GameManager gameManager;
+
+
+    private void OnEnable()
+    {
+        gameManager.OnDayStart += CheckTargetOnNextDay;
+    }
+
+    private void OnDisable()
+    {
+        gameManager.OnDayStart -= CheckTargetOnNextDay;
+    }
+
+
     public void AddMoney(int value)
     {
         money += value;
@@ -63,5 +78,19 @@ public class CurrencyManager : MonoBehaviour
         baseTargetMoney *= multiplicationTargetMoney;
         OnCurrencyChanged?.Invoke();
     }
+
+
+    public void CheckTargetOnNextDay()
+    {
+        Debug.Log("TESS"); 
+        if(GameManager.instance != null)
+        {
+            if(GameManager.instance.Day % 5 == 1 && GameManager.instance.Day != 1)
+            {
+                CheckTarget();
+            }
+        }
+    }
+
 
 }

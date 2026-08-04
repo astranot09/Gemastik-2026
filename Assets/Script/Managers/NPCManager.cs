@@ -29,5 +29,6 @@ public class NPCManager : MonoBehaviour
         GameObject NPC = Instantiate(NPCPrefab, spawnPoint.position, Quaternion.identity);
         PathFinding pathFinding = NPC.GetComponent<PathFinding>();
         pathFinding.GetTable(table);
+        GameManager.instance.NPCSpawnAtRestaurant();
     }
 }

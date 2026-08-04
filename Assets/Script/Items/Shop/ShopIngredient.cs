@@ -18,6 +18,15 @@ public class ShopIngredient : MonoBehaviour
 
     public void AddToInventory()
     {
-        InventoryManager.Instance.AddIngredient(ingredientData);
+        if (CurrencyManager.instance != null && CurrencyManager.instance.CheckingBalance(ingredientData.ingredientPrice))
+        {
+            InventoryManager.Instance.AddIngredient(ingredientData);
+            CurrencyManager.instance.RemoveMoney(ingredientData.ingredientPrice);
+        }
+        else
+        {
+            Debug.Log("Tidak cukup Uang");
+        }
+        
     }
 }
