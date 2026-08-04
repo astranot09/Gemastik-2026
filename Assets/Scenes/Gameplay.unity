@@ -4694,6 +4694,10 @@ PrefabInstance:
       value: InventoryManager
       objectReference: {fileID: 0}
     - target: {fileID: 5555952524723496240, guid: c9a059b2e9c5ad8468950b910a7a5d2e, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 235999035}
+    - target: {fileID: 5555952524723496240, guid: c9a059b2e9c5ad8468950b910a7a5d2e, type: 3}
       propertyPath: contentPanel
       value: 
       objectReference: {fileID: 1736843776}
