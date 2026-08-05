@@ -107,6 +107,10 @@ public class NPCChooseMenu : MonoBehaviour
     {
         foodIcon.enabled = false;
         CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
+        if(AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.money);
+        }
         StartCoroutine(NPCLeaveRestaurant());
     }
 
@@ -117,6 +121,7 @@ public class NPCChooseMenu : MonoBehaviour
         foodPathList.Clear();
         yield return new WaitForSeconds(3f);
         Debug.Log("NPC GW PERGI >:(");
+        foodIcon.enabled = false;
         pathFinding.WantToGetOut();
     }
 

@@ -21,8 +21,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip bgmClip;
 
     [Header("Clip BGM")]
-    [SerializeField] public AudioClip dayFinished;
-
+    public AudioClip dayFinished;
+    public AudioClip money;
 
     private void Start()
     {
