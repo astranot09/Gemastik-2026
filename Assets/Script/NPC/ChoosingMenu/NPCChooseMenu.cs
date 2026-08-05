@@ -16,6 +16,7 @@ public class NPCChooseMenu : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private Image foodIcon;
+    [SerializeField] private Image foodBubble;
 
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
@@ -90,6 +91,7 @@ public class NPCChooseMenu : MonoBehaviour
         Debug.Log(x.ToString());
         menuOrder = x;
         foodIcon.enabled = true;
+        foodBubble.enabled = true;
         foodIcon.sprite = menuOrder.menuSprite;
 
         if(OrderManager.instance != null)
@@ -106,6 +108,7 @@ public class NPCChooseMenu : MonoBehaviour
     public void NPCHappyGettingFood()
     {
         foodIcon.enabled = false;
+        foodBubble.enabled = false;
         CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
         if(AudioManager.instance != null)
         {
@@ -122,6 +125,7 @@ public class NPCChooseMenu : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Debug.Log("NPC GW PERGI >:(");
         foodIcon.enabled = false;
+        foodBubble.enabled = false;
         pathFinding.WantToGetOut();
     }
 

@@ -3,6 +3,19 @@ using UnityEngine;
 public class NPCSprite : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 360f;
+    [SerializeField] private Sprite[] NPCSprites;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        spriteRenderer.sprite = NPCSprites[Random.Range(0, NPCSprites.Length-1)];
+    }
+
     public void RotateSprite(Vector2 direction)
     {
         if (direction != Vector2.zero)
