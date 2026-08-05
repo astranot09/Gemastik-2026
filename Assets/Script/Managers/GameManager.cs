@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("PPPPPPPPPPPPP");
         OnDayEnd?.Invoke();
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlaySFX(AudioManager.instance.dayFinished);
         EndOfDayIncreaseRestaurantPopularity();
     }
 

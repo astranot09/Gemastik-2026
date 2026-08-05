@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class NPCChooseMenu : MonoBehaviour
 {
     [SerializeField] private List<MenuSO> availableRestaurantMenu = new List<MenuSO>();
@@ -13,6 +13,9 @@ public class NPCChooseMenu : MonoBehaviour
     [SerializeField] private bool lookedMenu = false;
     public List<Transform> foodPathList;
     private MenuSO menuOrder;
+
+    [Header("UI")]
+    [SerializeField] private Image foodIcon;
 
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
@@ -86,6 +89,8 @@ public class NPCChooseMenu : MonoBehaviour
         MenuSO x = GetRandomChoice();
         Debug.Log(x.ToString());
         menuOrder = x;
+        foodIcon.enabled = true;
+        foodIcon.sprite = menuOrder.menuSprite;
 
         if(OrderManager.instance != null)
         {
@@ -100,6 +105,7 @@ public class NPCChooseMenu : MonoBehaviour
     }
     public void NPCHappyGettingFood()
     {
+        foodIcon.enabled = false;
         CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
         StartCoroutine(NPCLeaveRestaurant());
     }
