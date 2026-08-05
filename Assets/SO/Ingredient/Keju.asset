@@ -15,4 +15,4 @@ MonoBehaviour:
   ingredientName: Keju
   ingredientSprite: {fileID: 21300000, guid: 4ca8ddc8113b878469cebfe2d33235ed, type: 3}
   ingredientPrice: 10
-  ingredientExpiredTime: 3
+  ingredientExpiredTime: 4

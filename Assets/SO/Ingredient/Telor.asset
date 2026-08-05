@@ -15,4 +15,4 @@ MonoBehaviour:
   ingredientName: Telor
   ingredientSprite: {fileID: 21300000, guid: b06d21aa861998042a4c768f1bffaaaf, type: 3}
   ingredientPrice: 6
-  ingredientExpiredTime: 2
+  ingredientExpiredTime: 3

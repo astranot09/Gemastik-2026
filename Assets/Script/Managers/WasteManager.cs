@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WasteManager : MonoBehaviour
@@ -18,8 +19,14 @@ public class WasteManager : MonoBehaviour
 
     [Header("Bucket")]
     [SerializeField] private int currentWasteInBucket = 0;
+    public int currWaste => currentWasteInBucket;
     [SerializeField] private int maxWasteInBucket = 5;
+    public int maxWaste => maxWasteInBucket;
     [SerializeField] private int popularityDecreaseValue = 2;
+
+    [SerializeField] private int dayRefresh = 5;
+
+    public event Action onWasteChange;
 
     public void WasteIngredient(int value, IngredientSO ingredientSO)
     {
@@ -39,6 +46,7 @@ public class WasteManager : MonoBehaviour
         if(currentWasteInBucket < maxWasteInBucket && ingredientSO.ingredientName != "Daging")
         {
             currentWasteInBucket++;
+            onWasteChange?.Invoke();
             return true;
         }
         else
@@ -46,6 +54,20 @@ public class WasteManager : MonoBehaviour
             return false;
         }
     }
+
+    public void CheckDay()
+    {
+        if(GameManager.instance != null)
+        {
+            if(GameManager.instance.Day % dayRefresh  == 1)
+            {
+                RefreshBucket();
+                onWasteChange?.Invoke();
+            }
+        }
+            
+    }
+
 
     public void RefreshBucket()
     {

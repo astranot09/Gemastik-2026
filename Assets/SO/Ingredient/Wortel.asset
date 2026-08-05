@@ -15,4 +15,4 @@ MonoBehaviour:
   ingredientName: Wortel
   ingredientSprite: {fileID: 21300000, guid: 6170b5014aa6a1b4497f8abb0c7c15ba, type: 3}
   ingredientPrice: 6
-  ingredientExpiredTime: 2
+  ingredientExpiredTime: 3

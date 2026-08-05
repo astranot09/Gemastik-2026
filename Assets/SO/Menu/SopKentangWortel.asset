@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: SopKentangWortel
   m_EditorClassIdentifier: 
   menuName: Sop Kentang Wortel
-  menuDescription: 
+  menuDescription: 'Hidangan kuah hangat yang berisi potongan kentang dan wortel
+    empuk dalam kaldu gurih. Enak dimakan saat badan lagi sakit
+
+
+    Harga Jual
+    = Rp. 45.000'
   menuSprite: {fileID: 21300000, guid: e19103c567b29e04493caf79e4ef51bd, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: b3e2f4604fd87a343b32e4467820bc1c, type: 2}
   - {fileID: 11400000, guid: 3fe24f119ace64245ab1ee96c9032fcf, type: 2}
   - {fileID: 11400000, guid: be1c612af530ed041ac9089574ce104e, type: 2}
   menuPrice: 45
-  statisticEventType: 020000000300000004000000
+  statisticEventType: 030000000400000005000000

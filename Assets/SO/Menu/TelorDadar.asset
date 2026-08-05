@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: TelorDadar
   m_EditorClassIdentifier: 
   menuName: Telor Dadar
-  menuDescription: 
+  menuDescription: 'Hidangan dari telur yang dikocok lepas, diberi bumbu, lalu digoreng
+    pipih dalam minyak panas.
+
+
+    Harga Jual = Rp. 12.000'
   menuSprite: {fileID: 21300000, guid: c7e93cd87a6a08a43acd66806b4bf398, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: f0be61e8a9762e940aae1998505595a4, type: 2}
   menuPrice: 12
-  statisticEventType: 00000000
+  statisticEventType: 01000000

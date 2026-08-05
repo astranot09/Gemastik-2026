@@ -26,11 +26,14 @@ public class UIManager : MonoBehaviour
     [Header("SCREEN")]
     [SerializeField] private CanvasGroup screenCanvasGroup;
 
+    [Header("Bucket")]
+    [SerializeField] private Slider bucketSlider;
 
     [Header("Reference")]
     [SerializeField] private PopularityManager popularityManager;
     [SerializeField] private CurrencyManager currencyManager;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private WasteManager wasteManager;
 
     private void OnEnable()
     {
@@ -39,6 +42,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnDayStart += UpdateProfileUI;
         gameManager.OnGameStart += TurnOffScreenCanvasGroup;
         gameManager.OnDayStart += TurnOnScreenCanvasGroup;
+        wasteManager.onWasteChange += UpdateBucketUI;
     }
     private void OnDisable()
     {
@@ -47,6 +51,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnDayStart -= UpdateProfileUI;
         gameManager.OnGameStart -= TurnOffScreenCanvasGroup;
         gameManager.OnDayStart -= TurnOnScreenCanvasGroup;
+        wasteManager.onWasteChange -= UpdateBucketUI;
     }
 
     private void Start()
@@ -107,11 +112,11 @@ public class UIManager : MonoBehaviour
                 break;
 
             case 1:
-                statisticText.text = $"- {types[0]}";
+                statisticText.text = $"- People like {types[0]}";
                 break;
 
             case 2:
-                statisticText.text = $"- {types[0]}\n- {types[1]}";
+                statisticText.text = $"- People like {types[0]}\n- People like {types[1]}";
                 break;
         }
 
@@ -142,5 +147,11 @@ public class UIManager : MonoBehaviour
         screenCanvasGroup.blocksRaycasts = true;
     }
 
+    //============================ DUMP BUCKET =====================================
 
+    public void UpdateBucketUI()
+    {
+        bucketSlider.maxValue = WasteManager.instance.maxWaste;
+        bucketSlider.value = WasteManager.instance.currWaste;
+    }
 }

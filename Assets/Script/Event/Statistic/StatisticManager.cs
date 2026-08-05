@@ -6,6 +6,7 @@ using UnityEngine;
 public enum StatisticEventType
 {
     None,
+    Egg,
     Spicy,
     Protein,
     Healthy,
@@ -47,9 +48,22 @@ public class StatisticManager : MonoBehaviour
     }
     public void CheckStatisticCurrentDay() //Setiap ganti day check ini
     {
-        int day = 1; //Masukkin yang itung day
+        int day = GameManager.instance.Day; //Masukkin yang itung day
+
+        if (day == 3)
+        {
+            currentEvents.Add(StatisticEventType.Egg);
+            currEventLeft = 1;
+            return;
+        }
+        else if(day == 4)
+        {
+            currEventLeft--;
+            return;
+        }
+
         if (day < 8) return;
-        else if(day >= 8 && currEventLeft == 0)
+        else if (day >= 8 && currEventLeft == 0)
         {
             currEventLeft = refreshEvent;
             AddEventStatisticIntoList();
@@ -75,7 +89,7 @@ public class StatisticManager : MonoBehaviour
 
         foreach (StatisticEventType type in enumValues)
         {
-            if (type != StatisticEventType.None)
+            if (type != StatisticEventType.None && type != StatisticEventType.Egg)
             {
                 availableTypes.Add(type);
             }

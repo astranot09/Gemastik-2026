@@ -27,10 +27,14 @@ public class PopularityManager : MonoBehaviour
     public void DecreasePopularity(int value)
     {
         popularity -= value;
-        popularity = Mathf.Clamp(popularity, 0, 100);
         OnPopularityChanged?.Invoke();
     }
 
+    public void ClampPopularity()
+    {
+        popularity = Mathf.Clamp(popularity, 0, 100);
+        OnPopularityChanged?.Invoke();
+    }
 
 
 }

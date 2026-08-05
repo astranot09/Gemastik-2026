@@ -15,4 +15,4 @@ MonoBehaviour:
   ingredientName: Bawang
   ingredientSprite: {fileID: 21300000, guid: ad03c0c60f151054ebb0133639692350, type: 3}
   ingredientPrice: 4
-  ingredientExpiredTime: 3
+  ingredientExpiredTime: 4

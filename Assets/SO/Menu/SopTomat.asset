@@ -13,11 +13,16 @@ MonoBehaviour:
   m_Name: SopTomat
   m_EditorClassIdentifier: 
   menuName: Sop Tomat
-  menuDescription: 
+  menuDescription: 'Hidangan berkuah yang terbuat dari tomat segar, memiliki cita
+    rasa khas perpaduan asam, manis, dan gurih, serta sangat nikmat disajikan hangat
+    saat cuaca dingin.
+
+
+    Harga Jual = Rp. 40.000'
   menuSprite: {fileID: 21300000, guid: 57ffc623875a19045bdab152df00f76b, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: acb142f6d8e2fd44d88c0a9c168b8f9b, type: 2}
   - {fileID: 11400000, guid: 2f30b5c125f3f174198064058cb25a1b, type: 2}
   - {fileID: 11400000, guid: 083fd2cf975f1184785afda13655662a, type: 2}
   menuPrice: 40
-  statisticEventType: 0300000004000000
+  statisticEventType: 0400000005000000

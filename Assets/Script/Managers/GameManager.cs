@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         OnGameStart?.Invoke();
         currentNPCSpawn = 0;
         NPCFinish = 0;
-        maxNPCSpawn = (day + (PopularityManager.instance.Popularity / 2));
+        maxNPCSpawn = (day + (Mathf.Clamp(PopularityManager.instance.Popularity,0,100) / 2));
         StartCoroutine(SpawnNPCLoopCoroutine());
     }
     public void NextDay()
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         day++;
         OnDayStart?.Invoke();
         StatisticManager.instance.CheckStatisticCurrentDay();
+        WasteManager.instance.CheckDay();
     }
     public void EndOfDay()
     {
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
     //========================= EVENT POPULARITY ==============================
     public void EndOfDayIncreaseRestaurantPopularity()
     {
+        //int x = PopularityManager.instance.Popularity;
+        //x += endOfDayPopularity;
         PopularityManager.instance.IncreasePopularity(endOfDayPopularity);
     }
 
