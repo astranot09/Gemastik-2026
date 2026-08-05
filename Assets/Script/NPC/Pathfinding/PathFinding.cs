@@ -11,6 +11,7 @@ public class PathFinding : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] private NPCChooseMenu chooseMenu;
+    [SerializeField] private NPCSprite spriteScript;
 
     private void Update()
     {
@@ -18,6 +19,9 @@ public class PathFinding : MonoBehaviour
             return;
 
         Transform target = points[currPoint];
+
+        Vector2 direction = (target.position - transform.position).normalized;
+        spriteScript.RotateSprite(direction);
 
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
@@ -46,6 +50,7 @@ public class PathFinding : MonoBehaviour
                     
                 else if (reachTable)
                 {
+                    transform.rotation = points[points.Length - 1].rotation;
                     ReachTable();
 
                 }
@@ -63,6 +68,7 @@ public class PathFinding : MonoBehaviour
 
     public void ReachTable()
     {
+        spriteScript.RotateAtLastNode(points[currPoint-1].transform);
         chooseMenu.CheckListRestaurantMenu();
     }
 
