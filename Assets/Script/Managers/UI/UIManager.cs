@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class UIManager : MonoBehaviour
 
     [Header("Bucket")]
     [SerializeField] private Slider bucketSlider;
+
+    [Header("Paused")]
+    [SerializeField] private GameObject pausedPanel;
+
 
     [Header("Reference")]
     [SerializeField] private PopularityManager popularityManager;
@@ -127,7 +132,11 @@ public class UIManager : MonoBehaviour
     public void UpdateProfileUI()
     {
         if(CurrencyManager.instance == null) return;
-        currencyText.text = $"Rp.{CurrencyManager.instance.Money}k / Rp.{CurrencyManager.instance.BaseTargetMoney}k - {5-(GameManager.instance.Day%5)} days left";
+        int x = GameManager.instance.Day % 5;
+        if (x == 0)
+            x = 5;
+
+        currencyText.text = $"Rp.{CurrencyManager.instance.Money}k / Rp.{CurrencyManager.instance.BaseTargetMoney}k - {5-(x)} days left";
         if(GameManager.instance == null) return;
         dayText.text = $"Day : {GameManager.instance.Day}";
     }
@@ -153,5 +162,22 @@ public class UIManager : MonoBehaviour
     {
         bucketSlider.maxValue = WasteManager.instance.maxWaste;
         bucketSlider.value = WasteManager.instance.currWaste;
+    }
+
+    //============================ PROFILE =====================================
+    public void OnPaused(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            Paused();
+        }
+    }
+    public void Paused()
+    {
+        pausedPanel.SetActive(!pausedPanel.activeSelf);
+    }
+    public void ExitGame()
+    {
+        SceneController.instance.MainMenuScene();
     }
 }

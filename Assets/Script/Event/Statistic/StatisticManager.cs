@@ -59,6 +59,7 @@ public class StatisticManager : MonoBehaviour
         else if(day == 4)
         {
             currEventLeft--;
+            currentEvents.Clear();
             return;
         }
 
