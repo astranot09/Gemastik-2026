@@ -9,9 +9,10 @@ public class TableScript : MonoBehaviour
     {
         if (collision.CompareTag("NPC"))
         {
-            collision.GetComponent<NPCChooseMenu>().SitAtTable(foodPathList);
+            collision.GetComponent<NPCChooseMenu>().SitAtTable(new List<Transform>(foodPathList));
         }
     }
+    
     //private void OnTriggerExit2D(Collider2D collision)
     //{
     //    if (collision.CompareTag("NPC"))

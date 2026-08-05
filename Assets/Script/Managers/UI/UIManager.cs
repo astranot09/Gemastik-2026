@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject shopPanel;
+    [SerializeField] private GameObject confirmationPanel;
 
     [Header("Inventory")]
     [SerializeField] private GameObject inventoryPanel;
@@ -68,8 +69,13 @@ public class UIManager : MonoBehaviour
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
     }
 
+    public void OpenConfirmationPanel()
+    {
+        confirmationPanel.SetActive(!confirmationPanel.activeSelf);
+    }
     public void StartRestaurant()
     {
+        confirmationPanel.SetActive(false);
         GameManager.instance.StartDay();
     }
 
