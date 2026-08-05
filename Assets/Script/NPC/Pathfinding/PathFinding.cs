@@ -50,7 +50,6 @@ public class PathFinding : MonoBehaviour
                     
                 else if (reachTable)
                 {
-                    transform.rotation = points[points.Length - 1].rotation;
                     ReachTable();
 
                 }

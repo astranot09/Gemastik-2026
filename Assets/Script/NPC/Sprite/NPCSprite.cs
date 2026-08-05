@@ -21,10 +21,6 @@ public class NPCSprite : MonoBehaviour
 
     public void RotateAtLastNode(Transform point)
     {
-        transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                point.rotation,
-                rotationSpeed * Time.deltaTime
-            );
+        transform.rotation = point.rotation;
     }
 }
