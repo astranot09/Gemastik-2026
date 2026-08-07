@@ -39,6 +39,7 @@ public class NPCSprite : MonoBehaviour
     public void IsWalking(bool isWalking)
     {
         animator.SetBool("IsWalking", isWalking);
+        Debug.Log($"Is Walking = {isWalking}");
     }
 
     public void RotateAtLastNode(Transform point)
