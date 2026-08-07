@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneController.instance.GameScene();
+        SceneController.instance.CutsceneIntroScene();
     }
 
     public void SettingButton()

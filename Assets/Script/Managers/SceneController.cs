@@ -16,6 +16,12 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void CutsceneIntroScene()
+    {
+        SceneManager.LoadScene("CutsceneIntro");
+    }
+
     public void GameScene()
     {
         SceneManager.LoadScene("Gameplay");
