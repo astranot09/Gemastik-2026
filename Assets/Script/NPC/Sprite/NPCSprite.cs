@@ -1,19 +1,23 @@
+using System;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class NPCSprite : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 360f;
-    [SerializeField] private Sprite[] NPCSprites;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteLibraryAsset[] NPCLibraryAssets;
+    private SpriteLibrary library;
+    private Animator animator;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        library = GetComponent<SpriteLibrary>();
     }
 
     private void Start()
     {
-        spriteRenderer.sprite = NPCSprites[Random.Range(0, NPCSprites.Length-1)];
+        library.spriteLibraryAsset = NPCLibraryAssets[UnityEngine.Random.Range(0, NPCLibraryAssets.Length)];
     }
 
     public void RotateSprite(Vector2 direction)
@@ -30,6 +34,11 @@ public class NPCSprite : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
+    }
+
+    public void IsWalking(bool isWalking)
+    {
+        animator.SetBool("IsWalking", isWalking);
     }
 
     public void RotateAtLastNode(Transform point)

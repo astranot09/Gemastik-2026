@@ -13,6 +13,11 @@ public class PathFinding : MonoBehaviour
     [SerializeField] private NPCChooseMenu chooseMenu;
     [SerializeField] private NPCSprite spriteScript;
 
+    private void Start()
+    {
+        spriteScript.IsWalking(true);
+    }
+
     private void Update()
     {
         if (points == null || currPoint >= points.Length)
@@ -68,6 +73,7 @@ public class PathFinding : MonoBehaviour
     public void ReachTable()
     {
         spriteScript.RotateAtLastNode(points[currPoint-1].transform);
+        spriteScript.IsWalking(false);
         chooseMenu.CheckListRestaurantMenu();
     }
 
@@ -82,6 +88,7 @@ public class PathFinding : MonoBehaviour
     public void GetOut()
     {
         Debug.Log("Keluar");
+        spriteScript.IsWalking(true);
         isGoingHome = true;
         currPoint = points.Length - 1;
         assignedTable.Vacate();
