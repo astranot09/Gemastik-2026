@@ -18,19 +18,19 @@ MonoBehaviour:
   - dialogueName: 
     dialogueText: The bucket is already full.
     onLeft: 1
-    tutorialPanel: {fileID: 0}
-    tutorialPane: 0
+    tutorialType: Bucket
+    onTutorial: 1
   - dialogueName: 
     dialogueText: "I should recycle the thrown ingredients so they don\u2019t go
       to waste."
     onLeft: 1
-    tutorialPanel: {fileID: 0}
-    tutorialPane: 0
+    tutorialType: 
+    onTutorial: 1
   - dialogueName: 
     dialogueText: "If i\u2019m not mistaken i have to put everything EXCEPT meat
       into the recycling bin to make compost which i can sell."
     onLeft: 1
-    tutorialPanel: {fileID: 0}
-    tutorialPane: 0
+    tutorialType: 
+    onTutorial: 1
   onePerson: 1
   dialogueSO: {fileID: 0}

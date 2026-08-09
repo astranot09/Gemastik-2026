@@ -27,6 +27,12 @@ public class DialogueUI : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject dialoguePanel;
 
+    [Header("Tutorial Panel")]
+    [SerializeField] private GameObject menuTutorialPanel;
+    [SerializeField] private GameObject shopTutorialPanel;
+    [SerializeField] private GameObject statisticTutorialPanel;
+    [SerializeField] private GameObject bucketTutorialPanel;
+
     private Coroutine dialogueCoroutine;
     private bool advancePressed;
 
@@ -68,6 +74,34 @@ public class DialogueUI : MonoBehaviour
             bool isTyping = true;
             advancePressed = false; // Reset input flag di awal tiap baris
             
+            if(!string.IsNullOrEmpty(dialogue.tutorialType))
+            {
+                if (dialogue.tutorialType == "Menu")
+                {
+                    ResetTutorialPanel();
+                    menuTutorialPanel.SetActive(true);
+                }
+                else if (dialogue.tutorialType == "Shop")
+                {
+                    ResetTutorialPanel();
+                    shopTutorialPanel.SetActive(true);
+                }
+                else if (dialogue.tutorialType == "Statistic")
+                {
+                    ResetTutorialPanel();
+                    statisticTutorialPanel.SetActive(true);
+                }
+                else if (dialogue.tutorialType == "Bucket")
+                {
+                    ResetTutorialPanel();
+                    bucketTutorialPanel.SetActive(true);
+                }
+            }
+
+            if (!dialogue.onTutorial)
+            {
+                ResetTutorialPanel();
+            }
 
             while (isTyping)
             {
@@ -128,6 +162,14 @@ public class DialogueUI : MonoBehaviour
         textLabel.text = string.Empty;
         speakerImage1.sprite = null;
         speakerImage2.sprite = null;
+    }
+
+    private void ResetTutorialPanel()
+    {
+        menuTutorialPanel.SetActive(false);
+        shopTutorialPanel.SetActive(false);
+        statisticTutorialPanel.SetActive(false);
+        bucketTutorialPanel.SetActive(false);
     }
 
     private void SetUpDialogueUI_OnStart()

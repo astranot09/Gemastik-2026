@@ -8,8 +8,8 @@ public class Dialogue
     [TextArea(3, 5)] public string dialogueText;
     public bool onLeft;
 
-    public GameObject tutorialPanel;
-    public bool tutorialPane;
+    public string tutorialType;
+    public bool onTutorial;
 }
 
 
