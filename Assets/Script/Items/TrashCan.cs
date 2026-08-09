@@ -3,7 +3,6 @@ using UnityEngine;
 public class TrashCan : MonoBehaviour
 {
     private bool objectIsHovering;
-
     private TrashedIngredient hoveringIngredient;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +12,11 @@ public class TrashCan : MonoBehaviour
             objectIsHovering = true;
             hoveringIngredient = collision.GetComponent<TrashedIngredient>();
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        TryTrash();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -32,6 +36,7 @@ public class TrashCan : MonoBehaviour
             {
                 Debug.Log($"{hoveringIngredient.name} got trashed");
                 hoveringIngredient.GetTrashed();
+                MinigameManager.instance.CheckTrash();
             }
         }
     }

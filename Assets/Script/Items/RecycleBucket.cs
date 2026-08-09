@@ -3,24 +3,41 @@ using UnityEngine;
 public class RecycleBucket : MonoBehaviour
 {
     private bool objectIsHovering;
+    private TrashedIngredient hoveringIngredient;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        objectIsHovering = true;
-        if (collision.CompareTag("Trashed") && objectIsHovering)
+        if (collision.CompareTag("Trashed"))
         {
-            TrashedIngredient trashedIngredient = collision.GetComponent<TrashedIngredient>();
-            if (!trashedIngredient.GetIsDragging())
-            {
-                Debug.Log($"{collision.name} got recycled");
-                trashedIngredient.GetRecycled();
-            }
-
+            objectIsHovering = true;
+            hoveringIngredient = collision.GetComponent<TrashedIngredient>();
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        TryRecycle();
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        objectIsHovering = false;
-        Debug.Log($"object is not hovering on {name}");
+        if (collision.CompareTag("Trashed"))
+        {
+            objectIsHovering = false;
+            hoveringIngredient = null;
+        }
+    }
+
+    public void TryRecycle()
+    {
+        if (objectIsHovering && hoveringIngredient != null)
+        {
+            if (!hoveringIngredient.GetIsDragging())
+            {
+                Debug.Log($"{hoveringIngredient.name} got Recycled");
+                hoveringIngredient.GetRecycled();
+                MinigameManager.instance.CheckTrash();
+            }
+        }
     }
 }

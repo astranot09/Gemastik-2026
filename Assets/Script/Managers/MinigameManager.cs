@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
@@ -7,8 +8,10 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private Sprite[] randomIngredientList;
     [SerializeField] private GameObject minigamePanel;
     [SerializeField] private GameObject trashedPrefab;
+    [SerializeField] private GameObject trashedParent;
     [SerializeField] private int numberOfTrash;
     [SerializeField] private BoxCollider2D spawnArea;
+    [SerializeField] private float secondsBeforeClose;
 
     private void Awake()
     {
@@ -29,7 +32,16 @@ public class MinigameManager : MonoBehaviour
         for (int i = 0; i < numberOfTrash; i++)
         {
             Vector2 randomPosition = new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
-            Instantiate(trashedPrefab, randomPosition, Quaternion.identity);
+            Instantiate(trashedPrefab, randomPosition, Quaternion.identity, trashedParent.transform);
+        }
+    }
+
+    public void CheckTrash()
+    {
+        Debug.Log(trashedParent.transform.childCount - 1);
+        if (trashedParent.transform.childCount - 1 <= 0)
+        {
+            CloseMinigame();
         }
     }
 
@@ -41,6 +53,12 @@ public class MinigameManager : MonoBehaviour
 
     public void CloseMinigame()
     {
+        StartCoroutine(StartClose());
+    }
+
+    IEnumerator StartClose()
+    {
+        yield return new WaitForSeconds(secondsBeforeClose);
         minigamePanel.SetActive(false);
     }
 }

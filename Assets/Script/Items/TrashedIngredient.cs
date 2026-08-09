@@ -24,8 +24,7 @@ public class TrashedIngredient : MonoBehaviour
 
     private void Update()
     {
-        Collider2D hit = Physics2D.OverlapCapsule(transform.position, size, capsuleCollider.direction, 0f, layerMask);
-        Debug.Log(hit);
+        
         if (isDragging)
         {
             transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,12 +34,21 @@ public class TrashedIngredient : MonoBehaviour
     private void OnMouseDown()
     {
         isDragging = true;
-        prevPosition = transform.position;
     }
 
     private void OnMouseUp()
     {
         isDragging = false;
+        Collider2D hit = Physics2D.OverlapCapsule(transform.position, size, capsuleCollider.direction, 0f, layerMask);
+        Debug.Log(hit);
+        if (hit)
+        {
+            prevPosition = transform.position;
+        }
+        else
+        {
+            transform.position = prevPosition;
+        }
     }
 
     public void GetTrashed()
