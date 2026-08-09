@@ -16,6 +16,7 @@ public class DialogueUI : MonoBehaviour
     [Header("UI -- Speaker 2")]
     [SerializeField] private TMP_Text speakerName2;
     [SerializeField] private Image speakerImage2;
+    [SerializeField] private GameObject speaker2Container;
 
     [Header("UI -- Universal")]
     [SerializeField] private TMP_Text textLabel;
@@ -96,8 +97,11 @@ public class DialogueUI : MonoBehaviour
 
             yield return null;
         }
-
         CloseDialogue();
+        if (dialogueData.dialogueSO != null)
+        {
+            ShowDialogue(dialogueData.dialogueSO);
+        }
     }
 
     public void CloseDialogue()
@@ -111,12 +115,14 @@ public class DialogueUI : MonoBehaviour
 
         ResetAllDialogueUI();
         dialoguePanel.SetActive(false);
-        
-
     }
 
     private void ResetAllDialogueUI()
     {
+        if (dialogueData.onePerson)
+        {
+            speaker2Container.SetActive(true);
+        }
         speakerName1.text = string.Empty;
         speakerName2.text = string.Empty;
         textLabel.text = string.Empty;
@@ -126,6 +132,11 @@ public class DialogueUI : MonoBehaviour
 
     private void SetUpDialogueUI_OnStart()
     {
+        if (dialogueData.onePerson)
+        {
+            speaker2Container.SetActive(false);
+        }
+
         if (!string.IsNullOrEmpty(dialogueData.speakerName1_Start))
         {
             speakerName1.text = dialogueData.speakerName1_Start;

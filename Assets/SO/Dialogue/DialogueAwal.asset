@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea143268487af642b8f6ebbea9585ce, type: 3}
+  m_Name: DialogueAwal
+  m_EditorClassIdentifier: 
+  speakerName1_Start: Flint
+  speakerName2_Start: Dad
+  dialogueList:
+  - dialogueName: 
+    dialogueText: Finally, I have opened my very own restaurant.
+    onLeft: 1
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "Don\u2019t be to happy yet kid, you still need to pay off those
+      loans no?"
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "Don\u2019t be like that pops, let me enjoy this milestone first.
+      The rest can come later."
+    onLeft: 1
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: haaa....You and that attitude of yours. One day it will bite you.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "But i guess..that\u2019s also your charm."
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: You know me. Besides, i got you watching my back.
+    onLeft: 1
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: This kid will make me kick the bucket i swear...
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "Say, you sure your plan will work? A restaurant with no excess
+      ingredient seems kinda a gamble don\u2019t you think?"
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: I know it is! But you know i hate seeing all those ingredients
+      go to waste!
+    onLeft: 1
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: I know i know..no need to get so worked up about it.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  onePerson: 0
+  dialogueSO: {fileID: 11400000, guid: bcd6b3826916e774d8d7f3db3e541af3, type: 2}

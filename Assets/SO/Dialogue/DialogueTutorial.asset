@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea143268487af642b8f6ebbea9585ce, type: 3}
+  m_Name: DialogueTutorial
+  m_EditorClassIdentifier: 
+  speakerName1_Start: Flint
+  speakerName2_Start: Dad
+  dialogueList:
+  - dialogueName: 
+    dialogueText: Just to be sure, you do remember what i taught you right?
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Uhhh...of course! Buttt..just to be sure..can you remind me again.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 1
+  - dialogueName: 
+    dialogueText: haaa...what can you do without me kid.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Well listen up! First thing first you need to set the menu for
+      the day.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Then you need to check which ingredients it needs.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: You can buy the ingredients from the store.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: You can buy the ingredients from the store.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Spend your cash wisely, you still need to pay off those loans.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Here you can also see what ingredients you have in the inventory.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Each ingredient have their own expiry date. But you should already
+      know this.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "Ummm...that\u2019s a lot to remember pops."
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 1
+  - dialogueName: 
+    dialogueText: "bah i\u2019m sure you\u2019ll remember in time."
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Almost forgot the most important thing.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: You NEED to check on customer statistics. On certain day the customers
+      will ONLY want specific things, so be on a lookout for that.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: After all of that is complete then you open the restaurant.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: Definitely not overwhelming at all.
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 1
+  - dialogueName: 
+    dialogueText: "Don\u2019t be such a wimp kid, i\u2019m sure you\u2019ll do just
+      fine. After all, you\u2019re my boy."
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  - dialogueName: 
+    dialogueText: "Don\u2019t be such a wimp kid, i\u2019m sure you\u2019ll do just
+      fine. After all, you\u2019re my boy."
+    onLeft: 0
+    tutorialPanel: {fileID: 0}
+    tutorialPane: 0
+  onePerson: 0
+  dialogueSO: {fileID: 0}
