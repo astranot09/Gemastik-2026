@@ -65,7 +65,8 @@ public class WasteManager : MonoBehaviour
 
     public bool CheckBucket(IngredientSO ingredientSO)
     {
-        if(currentWasteInBucket < maxWasteInBucket && ingredientSO.ingredientName != "Daging")
+        //if(currentWasteInBucket < maxWasteInBucket && ingredientSO.ingredientName != "Daging")
+        if(currentWasteInBucket < maxWasteInBucket)
         {
             currentWasteInBucket++;
             onWasteChange?.Invoke();

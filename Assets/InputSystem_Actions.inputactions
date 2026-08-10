@@ -59,6 +59,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f3595e2b-37dd-4c91-9db7-9ed9a9387632",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "363a326c-807d-40f6-8a9f-f87b1d50cf56",
                     "path": "<Keyboard>/space",
                     "interactions": "",
