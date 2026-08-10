@@ -42,6 +42,8 @@ public class StatisticManager : MonoBehaviour
     [SerializeField] private int refreshEvent = 3;
     [SerializeField] private int currEventLeft;
 
+    [Header("Reference")]
+    [SerializeField] private UIManager uiManager;
     private void Start()
     {
         CheckStatisticCurrentDay();
@@ -52,6 +54,7 @@ public class StatisticManager : MonoBehaviour
 
         if (day == 3)
         {
+            uiManager.GiveNotification("New Food Trend");
             currentEvents.Add(StatisticEventType.Egg);
             currEventLeft = 1;
             AudioManager.instance.PlaySFX(AudioManager.instance.notification);
@@ -68,6 +71,7 @@ public class StatisticManager : MonoBehaviour
         if (day < 8) return;
         else if (day >= 8 && currEventLeft == 0)
         {
+            uiManager.GiveNotification("New Food Trend");
             currEventLeft = refreshEvent;
             AudioManager.instance.PlaySFX(AudioManager.instance.notification);
             AddEventStatisticIntoList();

@@ -92,4 +92,6 @@ public class GameManager : MonoBehaviour
     {
         NPCFinish++;
     }
+
+
 }

@@ -20,6 +20,11 @@ public class ChoosingMenuPrefab : MonoBehaviour
     }
     public void OnChoose()
     {
+        if (!isSelected && ChoosingMenu.instance.CurrentSelected >= ChoosingMenu.instance.MaxMenuCanBeSelected)
+        {
+            UIManager.instance.GiveNotification($"Maximum menu {ChoosingMenu.instance.MaxMenuCanBeSelected}");
+        }
+
         if (!isSelected && ChoosingMenu.instance.CurrentSelected < ChoosingMenu.instance.MaxMenuCanBeSelected)
         {
             isSelected = true;

@@ -6,6 +6,19 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
+
+    public static UIManager instance;
+
+
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject confirmationPanel;
@@ -38,6 +51,9 @@ public class UIManager : MonoBehaviour
     [Header("Paused")]
     [SerializeField] private GameObject notificationBucketCompletePanel;
 
+    [Header("Notification")]
+    [SerializeField] private GameObject notificationPrefab;
+    [SerializeField] private Transform notificationSpawner;
 
     [Header("Reference")]
     [SerializeField] private PopularityManager popularityManager;
@@ -63,6 +79,8 @@ public class UIManager : MonoBehaviour
         gameManager.OnDayStart -= TurnOnScreenCanvasGroup;
         wasteManager.onWasteChange -= UpdateBucketUI;
     }
+
+
 
     private void Start()
     {
@@ -93,6 +111,11 @@ public class UIManager : MonoBehaviour
     }
     public void StartRestaurant()
     {
+        if(ChoosingMenu.instance.CurrentSelected < 2)
+        {
+            GiveNotification("Need At Least 2 Menu");
+            return;
+        }
         confirmationPanel.SetActive(false);
         AudioManager.instance.PlaySFX(AudioManager.instance.restaurantOpen);
         GameManager.instance.StartDay();
@@ -195,4 +218,14 @@ public class UIManager : MonoBehaviour
     {
         SceneController.instance.MainMenuScene();
     }
+
+
+    //============================ NOTIFICATION =====================================
+
+    public void GiveNotification(string x)
+    {
+        GameObject y = Instantiate(notificationPrefab, notificationSpawner.position, Quaternion.identity, notificationSpawner);
+        y.GetComponent<NotificationAnimation>().ShowNotification(x);
+    }
+
 }

@@ -26,12 +26,16 @@ public class DialogueUI : MonoBehaviour
 
     [Header("Panel")]
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject componentPanel;
 
     [Header("Tutorial Panel")]
     [SerializeField] private GameObject menuTutorialPanel;
     [SerializeField] private GameObject shopTutorialPanel;
     [SerializeField] private GameObject statisticTutorialPanel;
     [SerializeField] private GameObject bucketTutorialPanel;
+
+    [Header("Setting")]
+    [SerializeField] private float delayBeforeStartDialogue = 0.5f;
 
     private Coroutine dialogueCoroutine;
     private bool advancePressed;
@@ -50,18 +54,24 @@ public class DialogueUI : MonoBehaviour
 
         if (dialogueCoroutine == null)
         {
-
             dialogueData = dialogueSO;
 
-            SetUpDialogueUI_OnStart();
-
-            dialogueCoroutine = StartCoroutine(StepThroughDialogue(dialogueSO));
+            dialogueCoroutine = StartCoroutine(ShowDialogueComponent());
 
         }
         else
         {
             Debug.Log("Dialogue lain lagi nyala");
         }
+    }
+
+    IEnumerator ShowDialogueComponent()
+    {
+        yield return new WaitForSeconds(delayBeforeStartDialogue);
+
+        SetUpDialogueUI_OnStart();
+
+        StartCoroutine(StepThroughDialogue(dialogueData));
     }
 
     private IEnumerator StepThroughDialogue(DialogueSO dialogueSO)
@@ -151,6 +161,7 @@ public class DialogueUI : MonoBehaviour
         }
 
         ResetAllDialogueUI();
+        componentPanel.SetActive(false);
         dialoguePanel.SetActive(false);
     }
 
@@ -177,6 +188,8 @@ public class DialogueUI : MonoBehaviour
 
     private void SetUpDialogueUI_OnStart()
     {
+        componentPanel.SetActive(true);
+
         if (dialogueData.onePerson)
         {
             speaker2Container.SetActive(false);

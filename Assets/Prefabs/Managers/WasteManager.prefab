@@ -47,7 +47,7 @@ MonoBehaviour:
   currentWasteInBucket: 0
   maxWasteInBucket: 3
   popularityDecreaseValue: 2
-  dayRefresh: 5
+  dayRefresh: 2
   currRefresh: 0
   onRefresh: 0
   minigameCanBeTrigger: 0

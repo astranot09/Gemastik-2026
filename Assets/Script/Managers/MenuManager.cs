@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Reference")]
     [SerializeField] private GameManager gameManager;
-
+    [SerializeField] private UIManager uiManager;
 
     private void OnEnable()
     {
@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
         {
             Debug.Log("22");
             AudioManager.instance.PlaySFX(AudioManager.instance.notification);
-
+            uiManager.GiveNotification("New Menu Unlocked");
             foreach (MenuSO menu in day4NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);
@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
         else if (day == 8)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.notification);
-
+            uiManager.GiveNotification("New Menu Unlocked");
             foreach (MenuSO menu in day8NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);
@@ -60,7 +60,7 @@ public class MenuManager : MonoBehaviour
         else if (day == 17)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.notification);
-
+            uiManager.GiveNotification("New Menu Unlocked");
             foreach (MenuSO menu in day17NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);
