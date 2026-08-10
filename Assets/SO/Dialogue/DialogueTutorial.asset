@@ -22,7 +22,7 @@ MonoBehaviour:
     onTutorial: 0
   - dialogueName: 
     dialogueText: Uhhh...of course! Buttt..just to be sure..can you remind me again.
-    onLeft: 0
+    onLeft: 1
     tutorialType: 
     onTutorial: 0
   - dialogueName: 
@@ -47,11 +47,6 @@ MonoBehaviour:
     tutorialType: Shop
     onTutorial: 1
   - dialogueName: 
-    dialogueText: You can buy the ingredients from the store.
-    onLeft: 0
-    tutorialType: 
-    onTutorial: 1
-  - dialogueName: 
     dialogueText: Spend your cash wisely, you still need to pay off those loans.
     onLeft: 0
     tutorialType: 
@@ -69,7 +64,7 @@ MonoBehaviour:
     onTutorial: 1
   - dialogueName: 
     dialogueText: "Ummm...that\u2019s a lot to remember pops."
-    onLeft: 0
+    onLeft: 1
     tutorialType: 
     onTutorial: 0
   - dialogueName: 
@@ -95,13 +90,7 @@ MonoBehaviour:
     onTutorial: 0
   - dialogueName: 
     dialogueText: Definitely not overwhelming at all.
-    onLeft: 0
-    tutorialType: 
-    onTutorial: 0
-  - dialogueName: 
-    dialogueText: "Don\u2019t be such a wimp kid, i\u2019m sure you\u2019ll do just
-      fine. After all, you\u2019re my boy."
-    onLeft: 0
+    onLeft: 1
     tutorialType: 
     onTutorial: 0
   - dialogueName: 
