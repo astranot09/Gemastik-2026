@@ -3,6 +3,7 @@ using UnityEngine;
 public class TrashedIngredient : MonoBehaviour
 {
     private bool isDragging = false;
+    private string ingredientName;
     private SpriteRenderer spriteRenderer;
     private Vector2 prevPosition;
     private CapsuleCollider2D capsuleCollider;
@@ -16,11 +17,13 @@ public class TrashedIngredient : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
-    public void Initialize(Sprite sprite)
+    public void Initialize(IngredientSO ingredient)
     {
-        Debug.Log($"Sprite = {sprite.name}");
+        Debug.Log($"Sprite = {ingredient.name}");
+        Sprite sprite = ingredient.ingredientSprite;
 
         spriteRenderer.sprite = sprite;
+        ingredientName = ingredient.ingredientName;
 
         capsuleCollider.size = new Vector3(sprite.bounds.size.x-2, sprite.bounds.size.y-3, sprite.bounds.size.z);
         capsuleCollider.direction = CapsuleDirection2D.Horizontal;
@@ -44,14 +47,14 @@ public class TrashedIngredient : MonoBehaviour
     {
         isDragging = false;
         Collider2D hit = Physics2D.OverlapCapsule(transform.position, capsuleCollider.size, capsuleCollider.direction, 0f, layerMask);
-        Debug.Log(hit);
+        Debug.Log(hit.name);
         if (hit)
         {
             prevPosition = transform.position;
         }
         else
         {
-            transform.position = prevPosition;
+            ReturnToPosition();
         }
     }
 
@@ -67,8 +70,18 @@ public class TrashedIngredient : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public string GetName()
+    {
+        return ingredientName;
+    }
+
     public bool GetIsDragging()
     {
         return isDragging;
+    }
+
+    public void ReturnToPosition()
+    {
+        transform.position = prevPosition;
     }
 }

@@ -34,9 +34,18 @@ public class RecycleBucket : MonoBehaviour
         {
             if (!hoveringIngredient.GetIsDragging())
             {
-                Debug.Log($"{hoveringIngredient.name} got Recycled");
-                hoveringIngredient.GetRecycled();
-                MinigameManager.instance.CheckTrash();
+                if (hoveringIngredient.GetName() == "Daging" || hoveringIngredient.GetName() == "Kerupuk")
+                {
+                    hoveringIngredient.ReturnToPosition();
+                }
+                else
+                {
+                    
+                    Debug.Log($"{hoveringIngredient.name} got recycled");
+                    hoveringIngredient.GetRecycled();
+                    MinigameManager.instance.CheckTrash();
+                }
+
             }
         }
     }

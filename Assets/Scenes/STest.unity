@@ -2367,7 +2367,7 @@ MonoBehaviour:
   minigamePanel: {fileID: 1405864935}
   trashedPrefab: {fileID: 4834175356154792823, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
   trashedParent: {fileID: 389638024}
-  numberOfTrash: 5
+  numberOfTrash: 3
   spawnArea: {fileID: 523120596}
   secondsBeforeClose: 1
   ingredientSO:

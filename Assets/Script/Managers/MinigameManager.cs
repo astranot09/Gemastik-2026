@@ -40,7 +40,7 @@ public class MinigameManager : MonoBehaviour
             Debug.Log($"Spawn item = {itemData.ingredientName}");
             Vector2 randomPosition = new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
             GameObject item = Instantiate(trashedPrefab, randomPosition, Quaternion.identity, trashedParent.transform);
-            item.GetComponent<TrashedIngredient>().Initialize(itemData.ingredientSprite);
+            item.GetComponent<TrashedIngredient>().Initialize(itemData);
         }
     }
 
@@ -70,5 +70,6 @@ public class MinigameManager : MonoBehaviour
         yield return new WaitForSeconds(secondsBeforeClose);
         WasteManager.instance.MinigameBucketFinished();
         minigamePanel.SetActive(false);
+        minigameCanvas.SetActive(false);
     }
 }

@@ -34,9 +34,17 @@ public class TrashCan : MonoBehaviour
         {
             if (!hoveringIngredient.GetIsDragging())
             {
-                Debug.Log($"{hoveringIngredient.name} got trashed");
-                hoveringIngredient.GetTrashed();
-                MinigameManager.instance.CheckTrash();
+                if (hoveringIngredient.GetName() == "Daging" || hoveringIngredient.GetName() == "Kerupuk")
+                {
+                    Debug.Log($"{hoveringIngredient.name} got trashed");
+                    hoveringIngredient.GetTrashed();
+                    MinigameManager.instance.CheckTrash();
+                }
+                else
+                {
+                    hoveringIngredient.ReturnToPosition();
+                }
+                
             }
         }
     }
