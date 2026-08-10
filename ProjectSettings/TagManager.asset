@@ -52,5 +52,8 @@ TagManager:
   - name: Player
     uniqueID: 1466823577
     locked: 0
+  - name: Minigame
+    uniqueID: 413607017
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -5,13 +5,18 @@ public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager instance;
 
-    [SerializeField] private Sprite[] randomIngredientList;
+    //[Header("View Only")]
+    //[SerializeField] private Sprite[] randomIngredientList;
+
+    [Header("Insert")]
+    [SerializeField] private GameObject minigameCanvas;
     [SerializeField] private GameObject minigamePanel;
     [SerializeField] private GameObject trashedPrefab;
     [SerializeField] private GameObject trashedParent;
     [SerializeField] private int numberOfTrash;
     [SerializeField] private BoxCollider2D spawnArea;
     [SerializeField] private float secondsBeforeClose;
+    [SerializeField] private IngredientSO[] ingredientSO;
 
     private void Awake()
     {
@@ -28,11 +33,14 @@ public class MinigameManager : MonoBehaviour
     public void SpawnTrashed()
     {
         Bounds bounds = spawnArea.bounds;
-        
+
         for (int i = 0; i < numberOfTrash; i++)
         {
+            IngredientSO itemData = ingredientSO[Random.Range(0, ingredientSO.Length - 1)];
+            Debug.Log($"Spawn item = {itemData.ingredientName}");
             Vector2 randomPosition = new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
-            Instantiate(trashedPrefab, randomPosition, Quaternion.identity, trashedParent.transform);
+            GameObject item = Instantiate(trashedPrefab, randomPosition, Quaternion.identity, trashedParent.transform);
+            item.GetComponent<TrashedIngredient>().Initialize(itemData.ingredientSprite);
         }
     }
 
@@ -48,6 +56,7 @@ public class MinigameManager : MonoBehaviour
     public void OpenMinigame()
     {
         minigamePanel.SetActive(true);
+        minigameCanvas.SetActive(true);
         SpawnTrashed();
     }
 

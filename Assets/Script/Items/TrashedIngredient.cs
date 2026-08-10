@@ -9,7 +9,7 @@ public class TrashedIngredient : MonoBehaviour
     private Vector2 size;
     [SerializeField] LayerMask layerMask;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         prevPosition = transform.position;
@@ -18,8 +18,12 @@ public class TrashedIngredient : MonoBehaviour
 
     public void Initialize(Sprite sprite)
     {
+        Debug.Log($"Sprite = {sprite.name}");
+
         spriteRenderer.sprite = sprite;
-        size = capsuleCollider.size;
+
+        capsuleCollider.size = new Vector3(sprite.bounds.size.x-2, sprite.bounds.size.y-3, sprite.bounds.size.z);
+        capsuleCollider.direction = CapsuleDirection2D.Horizontal;
     }
 
     private void Update()
@@ -39,7 +43,7 @@ public class TrashedIngredient : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-        Collider2D hit = Physics2D.OverlapCapsule(transform.position, size, capsuleCollider.direction, 0f, layerMask);
+        Collider2D hit = Physics2D.OverlapCapsule(transform.position, capsuleCollider.size, capsuleCollider.direction, 0f, layerMask);
         Debug.Log(hit);
         if (hit)
         {
