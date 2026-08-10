@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<DialogueCharacterData> dialogueCharacterDatas = new ();
     public List<DialogueCharacterData> DialogueCharacterDatas => dialogueCharacterDatas;
 
+    [Header("Reference")]
+    [SerializeField] private DialogueUI dialogueUI;
+
     public Sprite GetSpeakerSprite(string speakerName)
     {
         foreach(DialogueCharacterData data in dialogueCharacterDatas)
@@ -33,6 +36,18 @@ public class DialogueManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+
+    public void PlayDialogue(DialogueSO dialogue)
+    {
+        dialogueUI.ShowDialogue(dialogue);
+    }
+
+    public void BruteForcedCloseDialogue()
+    {
+        dialogueUI.CloseDialogue();
+        dialogueUI.ResetTutorialPanel();
     }
 
 }

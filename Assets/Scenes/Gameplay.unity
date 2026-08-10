@@ -950,7 +950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -85.00051}
+  m_AnchoredPosition: {x: 0, y: -85.00049}
   m_SizeDelta: {x: 0, y: -169.999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139316255
@@ -2551,7 +2551,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409055425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3328,6 +3328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558679633}
   - component: {fileID: 558679632}
+  - component: {fileID: 558679635}
   m_Layer: 5
   m_Name: ==MAIN_MENU==
   m_TagString: Untagged
@@ -3342,7 +3343,7 @@ CanvasGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558679631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
@@ -3369,6 +3370,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &558679635
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558679631}
+  m_CullTransparentMesh: 1
 --- !u!1 &576569514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,7 +4723,7 @@ MonoBehaviour:
   statisticText: {fileID: 1987489267}
   dayText: {fileID: 2105203743}
   currencyText: {fileID: 1599550989}
-  screenCanvasGroup: {fileID: 558679632}
+  screenCanvasPanel: {fileID: 558679631}
   bucketSlider: {fileID: 1267712757}
   pausedPanel: {fileID: 1641496473}
   popularityManager: {fileID: 892522156}
@@ -5609,7 +5618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -76.400505}
+  m_AnchoredPosition: {x: 0, y: -76.40051}
   m_SizeDelta: {x: 0, y: -152.799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933209591
@@ -6686,7 +6695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c454ecfc3ccddd4dbd817ed442bdd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: c137549ae6c159649800728617b6cef5, type: 2}
+  dialogueData: {fileID: 0}
   speakerName1: {fileID: 1303468346}
   speakerImage1: {fileID: 703759499}
   speakerName2: {fileID: 58263861}
@@ -6745,6 +6754,7 @@ MonoBehaviour:
     characterSprite: {fileID: 0}
   - characterName: Bapak Flint
     characterSprite: {fileID: 0}
+  dialogueUI: {fileID: 1062504289}
 --- !u!1001 &1093279518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11163,6 +11173,7 @@ GameObject:
   - component: {fileID: 1706997798}
   - component: {fileID: 1706997800}
   - component: {fileID: 1706997799}
+  - component: {fileID: 1706997801}
   m_Layer: 5
   m_Name: Waste
   m_TagString: Untagged
@@ -11230,6 +11241,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706997797}
   m_CullTransparentMesh: 1
+--- !u!114 &1706997801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706997797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1706997799}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1518565736}
+        m_TargetAssemblyTypeName: WasteManager, Assembly-CSharp
+        m_MethodName: PlayMinigameBucket
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1730112429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14622,7 +14689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -14844,6 +14911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8463660859602573834, guid: 36253e97665f948428688f3c4b1beed8, type: 3}
+      propertyPath: bucketTutorial
+      value: 
+      objectReference: {fileID: 11400000, guid: d281d524f40b4cc4580e7111759928a1, type: 2}
     - target: {fileID: 8463660859602573834, guid: 36253e97665f948428688f3c4b1beed8, type: 3}
       propertyPath: maxWasteInBucket
       value: 3

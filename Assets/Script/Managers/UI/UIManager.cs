@@ -25,7 +25,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text currencyText;
 
     [Header("SCREEN")]
-    [SerializeField] private CanvasGroup screenCanvasGroup;
+    [SerializeField] private GameObject screenCanvasPanel;
+    //[SerializeField] private CanvasGroup screenCanvasGroup;
 
     [Header("Bucket")]
     [SerializeField] private Slider bucketSlider;
@@ -145,15 +146,15 @@ public class UIManager : MonoBehaviour
     // ============================ SCREEN CANVAS =====================================
     public void TurnOffScreenCanvasGroup()
     {
-        screenCanvasGroup.alpha = 0;
-        screenCanvasGroup.interactable = false;
-        screenCanvasGroup.blocksRaycasts = false;
+        screenCanvasPanel.SetActive(false);
+        //screenCanvasGroup.alpha = 0;
+        //screenCanvasGroup.interactable = false;
     }
     public void TurnOnScreenCanvasGroup()
     {
-        screenCanvasGroup.alpha = 1;
-        screenCanvasGroup.interactable = true;
-        screenCanvasGroup.blocksRaycasts = true;
+        screenCanvasPanel.SetActive(true);
+        //screenCanvasGroup.alpha = 1;
+        //screenCanvasGroup.interactable = true;
     }
 
     //============================ DUMP BUCKET =====================================

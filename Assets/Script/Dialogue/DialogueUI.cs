@@ -132,6 +132,7 @@ public class DialogueUI : MonoBehaviour
             yield return null;
         }
         CloseDialogue();
+        ResetTutorialPanel();
         if (dialogueData.dialogueSO != null)
         {
             ShowDialogue(dialogueData.dialogueSO);
@@ -164,7 +165,7 @@ public class DialogueUI : MonoBehaviour
         speakerImage2.sprite = null;
     }
 
-    private void ResetTutorialPanel()
+    public void ResetTutorialPanel()
     {
         menuTutorialPanel.SetActive(false);
         shopTutorialPanel.SetActive(false);

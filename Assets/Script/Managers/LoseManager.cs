@@ -20,7 +20,9 @@ public class LoseManager : MonoBehaviour
     public void PlayerLose()
     {
         losePanel.SetActive(true);
+        GameManager.instance.gameEnd = true;
         dayLose.text = $"Last Day = {GameManager.instance.Day.ToString()}";
+        DialogueManager.instance.BruteForcedCloseDialogue();
     }
 
     public void ExitToMainMenu()

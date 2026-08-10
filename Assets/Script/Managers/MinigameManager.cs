@@ -59,6 +59,7 @@ public class MinigameManager : MonoBehaviour
     IEnumerator StartClose()
     {
         yield return new WaitForSeconds(secondsBeforeClose);
+        WasteManager.instance.MinigameBucketFinished();
         minigamePanel.SetActive(false);
     }
 }

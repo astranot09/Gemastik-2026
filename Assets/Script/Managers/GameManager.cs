@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int NPCFinish;
     [SerializeField] private int delayPerSpawnNPC;
 
+    [Header("Game End")]
+    public bool gameEnd;
+
     //EVENT
     public event Action OnGameStart;
     public event Action OnDayStart;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
         OnDayStart?.Invoke();
         StatisticManager.instance.CheckStatisticCurrentDay();
         WasteManager.instance.CheckDay();
+
     }
     public void EndOfDay()
     {
