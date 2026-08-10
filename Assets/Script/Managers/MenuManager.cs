@@ -41,6 +41,8 @@ public class MenuManager : MonoBehaviour
         if(day == 4)
         {
             Debug.Log("22");
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
+
             foreach (MenuSO menu in day4NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);
@@ -48,6 +50,8 @@ public class MenuManager : MonoBehaviour
         }
         else if (day == 8)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
+
             foreach (MenuSO menu in day8NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);
@@ -55,6 +59,8 @@ public class MenuManager : MonoBehaviour
         }
         else if (day == 17)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
+
             foreach (MenuSO menu in day17NewMenu)
             {
                 ChoosingMenu.instance.AddNewMenu(menu);

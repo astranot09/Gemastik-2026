@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8738969784152696212}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -238.35272, y: 13.995728, z: -1.3629998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45,5 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWasteInBucket: 0
-  maxWasteInBucket: 5
+  maxWasteInBucket: 3
   popularityDecreaseValue: 2
+  dayRefresh: 5
+  currRefresh: 0
+  onRefresh: 0
+  minigameCanBeTrigger: 0
+  bucketTutorial: {fileID: 11400000, guid: d281d524f40b4cc4580e7111759928a1, type: 2}
+  uiManager: {fileID: 0}

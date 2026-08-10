@@ -103,6 +103,8 @@ public class DialogueUI : MonoBehaviour
                 ResetTutorialPanel();
             }
 
+            AudioManager.instance.PlaySFX(AudioManager.instance.dialogue);
+
             while (isTyping)
             {
                 // Cek apakah tombol ditekan via Input Action (InputDialogueUI)

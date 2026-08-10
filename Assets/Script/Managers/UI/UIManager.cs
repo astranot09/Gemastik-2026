@@ -35,6 +35,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausedPanel;
 
 
+    [Header("Paused")]
+    [SerializeField] private GameObject notificationBucketCompletePanel;
+
+
     [Header("Reference")]
     [SerializeField] private PopularityManager popularityManager;
     [SerializeField] private CurrencyManager currencyManager;
@@ -168,6 +172,11 @@ public class UIManager : MonoBehaviour
     {
         bucketSlider.maxValue = WasteManager.instance.maxWaste;
         bucketSlider.value = WasteManager.instance.currWaste;
+    }
+
+    public void BucketPanelUI()
+    {
+        notificationBucketCompletePanel.SetActive(!notificationBucketCompletePanel.activeSelf);
     }
 
     //============================ PROFILE =====================================

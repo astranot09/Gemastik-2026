@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1436613196106222590}
   - component: {fileID: 8040986403901297842}
   - component: {fileID: 7227119567395296952}
+  - component: {fileID: 4900047722940648371}
   m_Layer: 5
   m_Name: SelectedButton
   m_TagString: Untagged
@@ -99,8 +100,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.6603774, g: 0.64584076, b: 0.64584076, a: 1}
+    m_PressedColor: {r: 0.29559743, g: 0.29466787, b: 0.29466787, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -133,6 +134,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4900047722940648371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782017695883069564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481f38e67c381934781de0fd1db46cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: {x: 1.1, y: 1.1, z: 1.1}
+  animationDuration: 0.2
+  animationEase: 6
+  soundOn: 1
 --- !u!1 &2991520636698053750
 GameObject:
   m_ObjectHideFlags: 0

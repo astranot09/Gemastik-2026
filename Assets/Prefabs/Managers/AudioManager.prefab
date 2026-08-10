@@ -187,6 +187,10 @@ MonoBehaviour:
   npcBadMood: {fileID: 8300000, guid: 78d49d54e33bc7f4ba97d812f29b1a40, type: 3}
   buyButton: {fileID: 8300000, guid: 6813254baa8e77e41b0033f537852f27, type: 3}
   minigameCorrect: {fileID: 8300000, guid: 9507c418d69203b40b38e8d0d3ce309c, type: 3}
+  targetComplete: {fileID: 8300000, guid: 0c206a507bd11954ea95b489434be51f, type: 3}
+  minigameComplete: {fileID: 8300000, guid: f32be1ed4b4683c49ab14c0955d7057f, type: 3}
+  notification: {fileID: 8300000, guid: 5d169ac085bb0a54cb0f94367e94a8a6, type: 3}
+  dialogue: {fileID: 8300000, guid: 44f2cc385594f68408b0e957e6743f8c, type: 3}
 --- !u!1 &6503284700043369458
 GameObject:
   m_ObjectHideFlags: 0

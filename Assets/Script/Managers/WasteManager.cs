@@ -37,6 +37,8 @@ public class WasteManager : MonoBehaviour
     [SerializeField] private DialogueSO bucketTutorial;
     private bool firstTimeDialogue = false;
 
+    [Header("Reference")]
+    [SerializeField] private UIManager uiManager;
 
     public event Action onWasteChange;
 
@@ -88,6 +90,8 @@ public class WasteManager : MonoBehaviour
             currRefresh++;
             if(currRefresh >= dayRefresh)
             {
+                uiManager.BucketPanelUI();
+                AudioManager.instance.PlaySFX(AudioManager.instance.notification);
                 RefreshBucket();
                 onWasteChange?.Invoke();
             }

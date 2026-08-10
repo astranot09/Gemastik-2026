@@ -30,6 +30,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip npcBadMood;
     public AudioClip buyButton;
     public AudioClip minigameCorrect;
+    public AudioClip targetComplete;
+    public AudioClip minigameComplete;
+    public AudioClip notification;
+    public AudioClip dialogue;
 
     private void Start()
     {

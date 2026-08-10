@@ -65,6 +65,7 @@ public class MinigameManager : MonoBehaviour
 
     public void CloseMinigame()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.minigameComplete);
         StartCoroutine(StartClose());
     }
 

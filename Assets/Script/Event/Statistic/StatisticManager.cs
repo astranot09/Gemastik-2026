@@ -54,12 +54,14 @@ public class StatisticManager : MonoBehaviour
         {
             currentEvents.Add(StatisticEventType.Egg);
             currEventLeft = 1;
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
             return;
         }
         else if(day == 4)
         {
             currEventLeft--;
             currentEvents.Clear();
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
             return;
         }
 
@@ -67,6 +69,7 @@ public class StatisticManager : MonoBehaviour
         else if (day >= 8 && currEventLeft == 0)
         {
             currEventLeft = refreshEvent;
+            AudioManager.instance.PlaySFX(AudioManager.instance.notification);
             AddEventStatisticIntoList();
         }
         else

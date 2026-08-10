@@ -69,6 +69,7 @@ public class CurrencyManager : MonoBehaviour
         else
         {
             Debug.Log("Lanjut");
+            AudioManager.instance.PlaySFX(AudioManager.instance.targetComplete);
             UpdateTargetCurrency();
         }
     }
