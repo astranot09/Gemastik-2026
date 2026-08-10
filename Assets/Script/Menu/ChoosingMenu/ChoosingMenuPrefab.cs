@@ -25,6 +25,7 @@ public class ChoosingMenuPrefab : MonoBehaviour
             isSelected = true;
             ChoosingMenu.instance.AddSelectedMenu(menuSO);
             buttonImage.color = Color.grey;
+            AudioManager.instance.PlaySFX(AudioManager.instance.buyButton);
         }
         else if (isSelected)
         {

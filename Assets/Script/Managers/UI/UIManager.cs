@@ -68,11 +68,13 @@ public class UIManager : MonoBehaviour
     public void OpenMenuRestaurant()
     {
         menuPanel.SetActive(!menuPanel.activeSelf);
+        AudioManager.instance.PlaySFX(AudioManager.instance.bookMenu);
     }
 
     public void OpenShop()
     {
         shopPanel.SetActive(!shopPanel.activeSelf);
+        AudioManager.instance.PlaySFX(AudioManager.instance.uiPanelEntry);
     }
 
     public void OpenInventory()
@@ -83,10 +85,12 @@ public class UIManager : MonoBehaviour
     public void OpenConfirmationPanel()
     {
         confirmationPanel.SetActive(!confirmationPanel.activeSelf);
+        AudioManager.instance.PlaySFX(AudioManager.instance.uiPanelEntry);
     }
     public void StartRestaurant()
     {
         confirmationPanel.SetActive(false);
+        AudioManager.instance.PlaySFX(AudioManager.instance.restaurantOpen);
         GameManager.instance.StartDay();
     }
 
@@ -102,6 +106,7 @@ public class UIManager : MonoBehaviour
     public void OpenStatisticData()
     {
         statisticPanel.SetActive(!statisticPanel.activeSelf);
+        AudioManager.instance.PlaySFX(AudioManager.instance.uiPanelEntry);
         if (statisticPanel.activeSelf)
             CheckStatisticUI();
     }

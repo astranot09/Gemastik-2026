@@ -180,6 +180,13 @@ MonoBehaviour:
   bgmClip: {fileID: 8300000, guid: 5690a1eefd066644c8aa64ea3d704509, type: 3}
   dayFinished: {fileID: 8300000, guid: fc6f5e4b9f2e06041bc743dc9d5bcdcb, type: 3}
   money: {fileID: 8300000, guid: 335c1f24f14d5504d8f93ecd0b150898, type: 3}
+  buttonHover: {fileID: 8300000, guid: 97e059a5beff4be49aed09bd085cf123, type: 3}
+  uiPanelEntry: {fileID: 8300000, guid: 8f5fd06465b84a34bbe00c968b4ce994, type: 3}
+  bookMenu: {fileID: 8300000, guid: ef2494e1103a296459d3eb4337f5e53f, type: 3}
+  restaurantOpen: {fileID: 8300000, guid: a0e74e80668cd584e86674ad2c8b1877, type: 3}
+  npcBadMood: {fileID: 8300000, guid: 78d49d54e33bc7f4ba97d812f29b1a40, type: 3}
+  buyButton: {fileID: 8300000, guid: 6813254baa8e77e41b0033f537852f27, type: 3}
+  minigameCorrect: {fileID: 8300000, guid: 9507c418d69203b40b38e8d0d3ce309c, type: 3}
 --- !u!1 &6503284700043369458
 GameObject:
   m_ObjectHideFlags: 0

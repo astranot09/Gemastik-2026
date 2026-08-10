@@ -23,6 +23,13 @@ public class AudioManager : MonoBehaviour
     [Header("Clip BGM")]
     public AudioClip dayFinished;
     public AudioClip money;
+    public AudioClip buttonHover;
+    public AudioClip uiPanelEntry;
+    public AudioClip bookMenu;
+    public AudioClip restaurantOpen;
+    public AudioClip npcBadMood;
+    public AudioClip buyButton;
+    public AudioClip minigameCorrect;
 
     private void Start()
     {

@@ -82,6 +82,7 @@ public class NPCChooseMenu : MonoBehaviour
         if(PopularityManager.instance != null)
         {
             PopularityManager.instance.DecreasePopularity(decreasePopularityValue);
+            AudioManager.instance.PlaySFX(AudioManager.instance.npcBadMood);
         }
         StartCoroutine(NPCLeaveRestaurant());
     }

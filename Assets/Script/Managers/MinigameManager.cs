@@ -18,6 +18,9 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private float secondsBeforeClose;
     [SerializeField] private IngredientSO[] ingredientSO;
 
+    [Header("MiniGame Reward")]
+    [SerializeField] private int minigameReward;
+
     private void Awake()
     {
         if (instance == null)
@@ -69,6 +72,7 @@ public class MinigameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsBeforeClose);
         WasteManager.instance.MinigameBucketFinished();
+        CurrencyManager.instance.AddMoney(minigameReward);
         minigamePanel.SetActive(false);
         minigameCanvas.SetActive(false);
     }

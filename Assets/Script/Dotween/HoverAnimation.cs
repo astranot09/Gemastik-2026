@@ -12,6 +12,9 @@ public class HoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Vector3 originalScale;
     private Tween activeTween;
 
+    [Header("Sound Settings")]
+    [SerializeField] private bool soundOn = true;
+
     private void Awake()
     {
         // Simpan ukuran asli objek saat game mulai
@@ -22,6 +25,9 @@ public class HoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         // Kill tween yang sedang berjalan agar animasi tidak tabrakan/bug saat mouse di-hover dengan cepat
         activeTween?.Kill();
+
+        if(soundOn)
+            AudioManager.instance.PlaySFX(AudioManager.instance.buttonHover);
 
         // Animasi membesar ke hoverScale
         activeTween = transform.DOScale(originalScale.x * hoverScale.x, animationDuration)

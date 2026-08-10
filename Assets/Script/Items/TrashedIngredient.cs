@@ -61,12 +61,14 @@ public class TrashedIngredient : MonoBehaviour
     public void GetTrashed()
     {
         Debug.Log("Trashed");
+        AudioManager.instance.PlaySFX(AudioManager.instance.minigameCorrect);
         Destroy(gameObject);
     }
 
     public void GetRecycled()
     {
         Debug.Log("Recycled");
+        AudioManager.instance.PlaySFX(AudioManager.instance.minigameCorrect);
         Destroy(gameObject);
     }
 

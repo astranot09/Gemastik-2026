@@ -21,6 +21,7 @@ public class ShopIngredient : MonoBehaviour
         if (CurrencyManager.instance != null && CurrencyManager.instance.CheckingBalance(ingredientData.ingredientPrice))
         {
             InventoryManager.Instance.AddIngredient(ingredientData);
+            AudioManager.instance.PlaySFX(AudioManager.instance.buyButton);
             CurrencyManager.instance.RemoveMoney(ingredientData.ingredientPrice);
         }
         else

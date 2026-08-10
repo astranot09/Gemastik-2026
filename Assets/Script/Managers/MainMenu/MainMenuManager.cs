@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
     public void SettingButton()
     {
         settingPanel.SetActive(!settingPanel.activeSelf);
+        AudioManager.instance.PlaySFX(AudioManager.instance.uiPanelEntry);
     }
 
 
