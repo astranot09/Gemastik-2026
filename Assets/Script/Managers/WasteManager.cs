@@ -103,6 +103,7 @@ public class WasteManager : MonoBehaviour
     public void RefreshBucket()
     {
         onRefresh = false;
+        uiManager.ChangeColorBucketFill(false);
         currentWasteInBucket = 0;
     }
 
@@ -126,5 +127,6 @@ public class WasteManager : MonoBehaviour
     {
         onRefresh = true;
         currRefresh = 0;
+        uiManager.ChangeColorBucketFill(true);
     }
 }

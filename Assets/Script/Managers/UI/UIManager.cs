@@ -42,7 +42,8 @@ public class UIManager : MonoBehaviour
     //[SerializeField] private CanvasGroup screenCanvasGroup;
 
     [Header("Bucket")]
-    [SerializeField] private Slider bucketSlider;
+    //[SerializeField] private Slider bucketSlider;
+    [SerializeField] private Image bucketFillImage;
 
     [Header("Paused")]
     [SerializeField] private GameObject pausedPanel;
@@ -193,8 +194,20 @@ public class UIManager : MonoBehaviour
 
     public void UpdateBucketUI()
     {
-        bucketSlider.maxValue = WasteManager.instance.maxWaste;
-        bucketSlider.value = WasteManager.instance.currWaste;
+        bucketFillImage.fillAmount = (float)WasteManager.instance.currWaste / (float)WasteManager.instance.maxWaste;
+    }
+
+    public void ChangeColorBucketFill(bool compost)
+    {
+        if (compost)
+        {
+            Color brown = new Color(0.5f, 0.25f, 0.0f);
+            bucketFillImage.color = brown;
+        }
+        else
+        {
+            bucketFillImage.color = Color.white;
+        }
     }
 
     public void BucketPanelUI()
