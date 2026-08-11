@@ -487,6 +487,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534668675}
   m_CullTransparentMesh: 1
+--- !u!1001 &694932904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4834175356154792823, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_Name
+      value: TrashedIngredient
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774146879554587466, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c63e937e26f140428ce5d7a0b6bd6cc, type: 3}
 --- !u!1001 &898672815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2113,6 +2182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BucketMinigame
       objectReference: {fileID: 0}
+    - target: {fileID: 6065025239576457659, guid: e59f8a860a184a244b6f9eb751f4db31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2591,6 +2664,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2456547049393808769, guid: 16960fee0259d4242880b3aa3bf25e7c, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1074680184}
+    - target: {fileID: 2456547049393808769, guid: 16960fee0259d4242880b3aa3bf25e7c, type: 3}
       propertyPath: spawnArea
       value: 
       objectReference: {fileID: 523120596}
@@ -2673,4 +2750,5 @@ SceneRoots:
   - {fileID: 213958897}
   - {fileID: 2083256830}
   - {fileID: 7446447734229453557}
+  - {fileID: 694932904}
   - {fileID: 692998708297551408}
