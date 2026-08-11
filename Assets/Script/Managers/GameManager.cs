@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         OnGameStart?.Invoke();
         currentNPCSpawn = 0;
         NPCFinish = 0;
-        maxNPCSpawn = (day + (Mathf.Clamp(PopularityManager.instance.Popularity,0,100) / 2));
+        maxNPCSpawn = day + Mathf.RoundToInt(Mathf.Clamp(PopularityManager.instance.Popularity, 0, 100) * 0.4f);
         StartCoroutine(SpawnNPCLoopCoroutine());
     }
     public void NextDay()
