@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88eac46988f82842aafc28b99cba9e7, type: 3}
   m_Name: Daging
   m_EditorClassIdentifier: 
-  ingredientName: Daging
+  ingredientName: Beef
   ingredientSprite: {fileID: 21300000, guid: 89619b1bf88bbad42a81abdd9bc74eb6, type: 3}
   ingredientPrice: 16
   ingredientExpiredTime: 2
