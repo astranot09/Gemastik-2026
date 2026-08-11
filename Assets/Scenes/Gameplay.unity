@@ -15509,7 +15509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d248162acf5c224d975474193f683b5, type: 2}
   m_sharedMaterial: {fileID: 3309225701711110083, guid: 0d248162acf5c224d975474193f683b5, type: 2}
@@ -16517,6 +16517,10 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 802002847}
+    - target: {fileID: 8463660859602573834, guid: 36253e97665f948428688f3c4b1beed8, type: 3}
+      propertyPath: maxWasteInBucket
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8738969784152696212, guid: 36253e97665f948428688f3c4b1beed8, type: 3}
       propertyPath: m_Name
       value: WasteManager
