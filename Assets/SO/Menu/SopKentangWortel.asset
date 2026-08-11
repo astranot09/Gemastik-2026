@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0010e073ac90f488bfd20ebc15c97f, type: 3}
   m_Name: SopKentangWortel
   m_EditorClassIdentifier: 
-  menuName: Sop Kentang Wortel
-  menuDescription: 'Hidangan kuah hangat yang berisi potongan kentang dan wortel
-    empuk dalam kaldu gurih. Enak dimakan saat badan lagi sakit
+  menuName: Potato and Carrot Soup
+  menuDescription: 'A warm, soupy dish featuring tender chunks of potato and carrot
+    in a savory broth. It is delicious to eat when you are feeling under the weather.
 
 
-    Harga Jual
-    = Rp. 45.000'
+    Price
+    = Rp. 40.000'
   menuSprite: {fileID: 21300000, guid: e19103c567b29e04493caf79e4ef51bd, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: b3e2f4604fd87a343b32e4467820bc1c, type: 2}

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Sate
   m_EditorClassIdentifier: 
   menuName: Sate
-  menuDescription: 'Makanan khas Indonesia yang terbuat dari potongan kecil daging
-    kemudian ditusuk dengan lidi, lalu dipanggang di atas bara arang dan dikasih
-    bumbu kacang
+  menuDescription: 'An Indonesian specialty consisting of small pieces of meat skewered
+    on sticks, grilled over charcoal, and served with peanut sauce.
 
 
-    Harga Jual = Rp. 40.000'
+    Price =
+    Rp. 35.000'
   menuSprite: {fileID: 21300000, guid: 992bbdd686086e649abc1501732ea877, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: ae510aef6f10641448a8a0e278ad45fd, type: 2}

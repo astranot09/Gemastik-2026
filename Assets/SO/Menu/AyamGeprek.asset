@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: AyamGeprek
   m_EditorClassIdentifier: 
   menuName: Ayam Geprek
-  menuDescription: 'Makanan ayam goreng tepung khas Indonesia yang diulek bersama
-    sambal
+  menuDescription: 'An Indonesian-style crispy fried chicken dish pounded together
+    with sambal.
 
 
-    Harga Jual = Rp. 40.000'
+    Price = Rp. 35.000'
   menuSprite: {fileID: 21300000, guid: 9aed578ca9b78b84fb5d475c9fa5fe5a, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: be1c612af530ed041ac9089574ce104e, type: 2}

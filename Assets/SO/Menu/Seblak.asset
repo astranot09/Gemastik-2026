@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Seblak
   m_EditorClassIdentifier: 
   menuName: Seblak
-  menuDescription: 'Makanan khas Sunda, yang terkenal dengan rasa gurih dan pedas
-    yang menyengat. Berisi berbagai macam kerupuk dan kuah yang pedas.
+  menuDescription: 'A signature Sundanese dish known for its savory flavor and intense
+    spiciness; it features a variety of crackers served in a spicy broth.
 
 
-    Harga
-    Jual = Rp. 20.000'
+    Price
+    = Rp.15.000'
   menuSprite: {fileID: 21300000, guid: 056bf086cb9c479409e89e95878f61f9, type: 3}
   listIngredient:
   - {fileID: 11400000, guid: 7487c14c076b64745bded561305e85bd, type: 2}
