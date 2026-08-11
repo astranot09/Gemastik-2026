@@ -21,6 +21,9 @@ public class MinigameManager : MonoBehaviour
     [Header("MiniGame Reward")]
     [SerializeField] private int minigameReward;
 
+    [Header("Canvas")]
+    [SerializeField] private GameObject canvas;
+
     private void Awake()
     {
         if (instance == null)
@@ -60,6 +63,7 @@ public class MinigameManager : MonoBehaviour
     {
         minigamePanel.SetActive(true);
         minigameCanvas.SetActive(true);
+        canvas.SetActive(false);
         SpawnTrashed();
     }
 
@@ -72,6 +76,7 @@ public class MinigameManager : MonoBehaviour
     IEnumerator StartClose()
     {
         yield return new WaitForSeconds(secondsBeforeClose);
+        canvas.SetActive(true);
         WasteManager.instance.MinigameBucketFinished();
         CurrencyManager.instance.AddMoney(minigameReward);
         minigamePanel.SetActive(false);
