@@ -34,7 +34,7 @@ public class TrashCan : MonoBehaviour
         {
             if (!hoveringIngredient.GetIsDragging())
             {
-                if (hoveringIngredient.GetName() == "Daging" || hoveringIngredient.GetName() == "Kerupuk")
+                if (hoveringIngredient.GetName() == "Beef" || hoveringIngredient.GetName() == "Crackers")
                 {
                     Debug.Log($"{hoveringIngredient.name} got trashed");
                     hoveringIngredient.GetTrashed();

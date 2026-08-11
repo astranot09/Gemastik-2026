@@ -28,7 +28,7 @@ MonoBehaviour:
     onTutorial: 1
   - dialogueName: 
     dialogueText: "If i\u2019m not mistaken i have to put everything EXCEPT meat
-      into the recycling bin to make compost which i can sell."
+      and crackers into the recycling bin to make compost which i can sell."
     onLeft: 1
     tutorialType: 
     onTutorial: 1

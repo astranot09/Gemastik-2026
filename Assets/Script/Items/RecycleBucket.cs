@@ -34,7 +34,7 @@ public class RecycleBucket : MonoBehaviour
         {
             if (!hoveringIngredient.GetIsDragging())
             {
-                if (hoveringIngredient.GetName() == "Daging" || hoveringIngredient.GetName() == "Kerupuk")
+                if (hoveringIngredient.GetName() == "Beef" || hoveringIngredient.GetName() == "Crackers")
                 {
                     hoveringIngredient.ReturnToPosition();
                 }
