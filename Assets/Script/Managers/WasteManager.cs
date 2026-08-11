@@ -53,7 +53,7 @@ public class WasteManager : MonoBehaviour
             }
         }
 
-        if(currentWasteInBucket >= maxWasteInBucket && !minigameCanBeTrigger)
+        if(currentWasteInBucket >= maxWasteInBucket && !minigameCanBeTrigger && !onRefresh)
         {
             minigameCanBeTrigger = true;
             if (!firstTimeDialogue && !GameManager.instance.gameEnd)
@@ -68,7 +68,7 @@ public class WasteManager : MonoBehaviour
     public bool CheckBucket(IngredientSO ingredientSO)
     {
         //if(currentWasteInBucket < maxWasteInBucket && ingredientSO.ingredientName != "Daging")
-        if(currentWasteInBucket < maxWasteInBucket)
+        if(currentWasteInBucket < maxWasteInBucket && !onRefresh)
         {
             currentWasteInBucket++;
             onWasteChange?.Invoke();
@@ -103,6 +103,7 @@ public class WasteManager : MonoBehaviour
     public void RefreshBucket()
     {
         onRefresh = false;
+        minigameCanBeTrigger = false;
         uiManager.ChangeColorBucketFill(false);
         currentWasteInBucket = 0;
     }
