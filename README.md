@@ -13,6 +13,15 @@ Game Engine = Unity 6000.0.60f1
 | Stopit-m8 | Game Designer & Game Programmer | ... |
 | raymondbenedict2802405245’s | Game Artist | ... |
 
+## My Contribution (astranot09)
+- Set Menu (What menu that player set, How to read the menu that player set)
+- NPC Order Menu (Is there any food trend, What food that player have and does it intersect with the trend, How to order, What happend if there is no food or ingredient, etc)
+- Logic to make food coming to NPC when the ordered success.
+- Recap Logic (How much the menu is being ordered, How much the Ingredient being used, etc)
+- Statistic Logic (When the trend is coming, When the trend is changing, How to read the trend with the menu, etc)
+- Bucket Logic (When the bucket full, How to fill the bucket, If full what happend, When the bucket can be used again).
+- Animation UI Dotween
+
 ## Key Features
 
 ### Choosing Menu
