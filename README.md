@@ -61,7 +61,7 @@ High customer satisfaction boosts restaurant popularity, driving higher customer
 | Game Manager | Gameplay | Coordinates day-night cycles, service states, and customer spawning routines. |
 | Lose Manager | Gameplay | Evaluates game-over triggers when financial targets fail. |
 | Menu Manager | Gameplay | Tracks unlocked recipes in menu book. |
-| Minigame Manager | Gameplay | TLaunches interactive minigames and evaluates rewards. |
+| Minigame Manager | Gameplay | Launches interactive minigames and evaluates rewards. |
 | NPC Manager | Gameplay | Handles customer spawning, table assignments, and queue logic. |
 | Order Manager | Gameplay | Processes NPC orders, validates inventory stock, and handles cancelations. |
 | Popularity Manager | Gameplay | Dynamically scales customer traffic based on customer satisfaction and waste penalties |
