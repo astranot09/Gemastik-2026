@@ -14,7 +14,7 @@ Game Engine = Unity 6000.0.60f1
 | raymondbenedict2802405245’s | Game Artist | ... |
 
 ## My Contribution (astranot09)
-- Set Menu (What menu that player set, How to read the menu that player set)
+- Menu Preparation Logic (What menu that player set, How to read the menu that player set)
 - NPC Order Menu (Is there any food trend, What food that player have and does it intersect with the trend, How to order, What happend if there is no food or ingredient, etc)
 - Logic to make food coming to NPC when the ordered success.
 - Recap Logic (How much the menu is being ordered, How much the Ingredient being used, etc)
@@ -24,32 +24,54 @@ Game Engine = Unity 6000.0.60f1
 
 ## Key Features
 
-### Choosing Menu
-Player need to choose 2 menu that player would buy.. you can choose up to 3 menus
+### Strategic Menu Planning
+Select 2 to 3 featured menu items daily based on available inventory and market trends.
 
-### Shop
-Player can buy Ingredients in shop.
-
-### Inventory
-Player can store the ingredients into inventory, but remember, each ingredient have different expired date.
-
-### Popularity
-A lot of popularity mean a lot of costumers will coming. 
+### Shop & Inventory Management
+Purchase raw ingredients with unique expiration dates. Expired items turn into food waste!
 
 ### Statistic Food Trend
-Sometimes there are food trends where customer only want to eat that have the trend.
+Adapt to changing market demands where customers favor specific dish categories, boosting demand and satisfaction.
 
-### Waste
-When the food expired, it become wasted.. A lot of food waste mean a lot popularity that gone.
+### Zero-Waste Composting System
+Process accumulated food waste in composting buckets to create organic fertilizer, mitigating popularity loss from waste.
 
-### Bucket
-Food Waste can be make into food waste, but it need to be proceed to make it.
+### Reputation & Popularity Mechanics
+High customer satisfaction boosts restaurant popularity, driving higher customer traffic.
 
 ## Layer / Module Design
 
+<img width="1299" height="1813" alt="FlintModule drawio" src="https://github.com/user-attachments/assets/90e15b6c-8de6-4b4d-a760-5ee94d0977e1" />
+
+
 ## Modules and Features
 
-## Game Flow
+| Name | Scene | Responsibility |
+| :---: | :---: | :---: |
+| Scene Controller | All Scene | Scene transitions, loading screens, state resets. |
+| Audio Manager | All Scene | Plays BGM/SFX globally via audio database. |
+| Cutscene Manager | Cutscene Intro | Handles sequence triggers, image lists, and DOTween cinematic animations. |
+| Main Menu Manager | Main Menu | Manages menu UI navigation, options, and game startup routines. |
+| Dialogue Manager | Gameplay | Handles typewriter dialogue rendering, speaker portraits, and narrative queues. |
+| Statistic Manager | Gameplay | Generates food trends, tracks trend durations, and evaluates menu alignment. |
+| Food To NPC | Gameplay | Controls food delivery animations and table targeting upon order completion. |
+| Inventory Manager | Gameplay | Stores raw ingredients, updates item stacks, and ticks down expiration dates. |
+| Shop Manager | Gameplay | Handles item purchasing, unit costs, and stock transfers to player inventory. |
+| Currency Manager | Gameplay | Tracks revenue, applies profit multipliers, and evaluates daily financial targets. |
+| Game Manager | Gameplay | Coordinates day-night cycles, service states, and customer spawning routines. |
+| Lose Manager | Gameplay | Evaluates game-over triggers when financial targets fail. |
+| Menu Manager | Gameplay | Tracks unlocked recipes in menu book. |
+| Minigame Manager | Gameplay | TLaunches interactive minigames and evaluates rewards. |
+| NPC Manager | Gameplay | Handles customer spawning, table assignments, and queue logic. |
+| Order Manager | Gameplay | Processes NPC orders, validates inventory stock, and handles cancelations. |
+| Popularity Manager | Gameplay | Dynamically scales customer traffic based on customer satisfaction and waste penalties |
+| Recap Manager | Gameplay | Aggregates daily financial performance, ingredient usage, and waste generation. |
+| Table Manager | Gameplay | Tracks dining table availability, and occupancy. |
+| Waste Manager | Gameplay | Converts expired food into waste, monitors bucket capacity, and triggers composting. |
+| Choosing Menu | Gameplay | Database of recipes and active menu selection during preperation. |
+| NPC Choose Menu | Gameplay | AI logic evaluating trends, menu items, and customer preference. |
+| Path Finding | Gameplay | Waypoint-based navigation for customer movement between entrance, tables, and exit. |
 
-## Unity Asset
-- Free Quick Effects Vol. 1
+## Game Flow
+<img width="1082" height="1487" alt="FlintGameFlow drawio" src="https://github.com/user-attachments/assets/49e20f2a-b8c9-41bb-b2f3-c6c1cf2932d9" />
+
