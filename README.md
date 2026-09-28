@@ -48,7 +48,7 @@ High customer satisfaction boosts restaurant popularity, driving higher customer
 
 | Name | Scene | Responsibility |
 | :---: | :---: | :---: |
-| Scene Controller | All Scene | Scene transitions, loading screens, state resets. |
+| Scene Controller | All Scene | Scene transitions, load screens, exit game. |
 | Audio Manager | All Scene | Plays BGM/SFX globally via audio database. |
 | Cutscene Manager | Cutscene Intro | Handles sequence triggers, image lists, and DOTween cinematic animations. |
 | Main Menu Manager | Main Menu | Manages menu UI navigation, options, and game startup routines. |
