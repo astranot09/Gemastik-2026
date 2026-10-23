@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private GameObject componentPanel;
 
+    [Header("Animation")]
+    [SerializeField] private RectTransform dialoguePanelTransform;
+    [SerializeField] private float animDuration;
+    [SerializeField] private Transform startLocation;
+    [SerializeField] private Transform targetLocation;
+
     [Header("Tutorial Panel")]
     [SerializeField] private GameObject menuTutorialPanel;
     [SerializeField] private GameObject shopTutorialPanel;
@@ -36,6 +43,8 @@ public class DialogueUI : MonoBehaviour
 
     [Header("Setting")]
     [SerializeField] private float delayBeforeStartDialogue = 0.5f;
+
+
 
     private Coroutine dialogueCoroutine;
     private bool advancePressed;
@@ -71,7 +80,7 @@ public class DialogueUI : MonoBehaviour
 
         SetUpDialogueUI_OnStart();
 
-        StartCoroutine(StepThroughDialogue(dialogueData));
+        PanelDialogueEntryAnimation();
     }
 
     private IEnumerator StepThroughDialogue(DialogueSO dialogueSO)
@@ -143,12 +152,7 @@ public class DialogueUI : MonoBehaviour
 
             yield return null;
         }
-        CloseDialogue();
-        ResetTutorialPanel();
-        if (dialogueData.dialogueSO != null)
-        {
-            ShowDialogue(dialogueData.dialogueSO);
-        }
+        PanelDialogueExitAnimation();
     }
 
     public void CloseDialogue()
@@ -255,4 +259,32 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
+    private void PanelDialogueEntryAnimation()
+    {
+        dialoguePanelTransform.SetPositionAndRotation(startLocation.position, startLocation.rotation);
+
+        dialoguePanelTransform
+            .DOAnchorPosY(targetLocation.localPosition.y, animDuration)
+            .SetEase(Ease.OutBack)
+            .OnComplete(() =>
+            {
+                StartCoroutine(StepThroughDialogue(dialogueData));
+            });
+    }
+
+    private void PanelDialogueExitAnimation()
+    {
+        dialoguePanelTransform
+            .DOAnchorPosY(startLocation.localPosition.y, animDuration)
+            .SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                CloseDialogue();
+                ResetTutorialPanel();
+                if (dialogueData.dialogueSO != null)
+                {
+                    ShowDialogue(dialogueData.dialogueSO);
+                }
+            });
+    }
 }

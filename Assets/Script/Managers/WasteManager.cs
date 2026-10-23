@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class WasteManager : MonoBehaviour
@@ -37,6 +38,14 @@ public class WasteManager : MonoBehaviour
     [SerializeField] private DialogueSO bucketTutorial;
     private bool firstTimeDialogue = false;
 
+    [Header("Bucket Animation")]
+    [SerializeField] private Transform targetTransform;
+    [SerializeField] private float animDuration = 0.5f;
+    [SerializeField] private float shakeStrength = 20f;
+    [SerializeField] private int shakeVibrato = 10;
+
+    private Tween bucketTween;
+
     [Header("Reference")]
     [SerializeField] private UIManager uiManager;
 
@@ -56,11 +65,16 @@ public class WasteManager : MonoBehaviour
         if(currentWasteInBucket >= maxWasteInBucket && !minigameCanBeTrigger && !onRefresh)
         {
             minigameCanBeTrigger = true;
+            StartBucketAnimation();
             if (!firstTimeDialogue && !GameManager.instance.gameEnd)
             {
                 firstTimeDialogue = true;
                 DialogueManager.instance.PlayDialogue(bucketTutorial);
             }
+        }
+        else
+        {
+            StopBucketAnimation();
         }
     }
 
@@ -129,5 +143,31 @@ public class WasteManager : MonoBehaviour
         onRefresh = true;
         currRefresh = 0;
         uiManager.ChangeColorBucketFill(true);
+        StopBucketAnimation();
+    }
+
+    private void StartBucketAnimation()
+    {
+        if (targetTransform == null) return;
+
+        StopBucketAnimation();
+
+        bucketTween = targetTransform.DOShakeRotation(animDuration, new Vector3(0, 0, shakeStrength), shakeVibrato)
+            .SetLoops(-1, LoopType.Yoyo)
+            .SetUpdate(true);
+    }
+
+    private void StopBucketAnimation()
+    {
+        if (targetTransform == null) return;
+
+        if (bucketTween != null && bucketTween.IsActive())
+        {
+            bucketTween.Kill();
+            bucketTween = null;
+        }
+
+        targetTransform.DOKill();
+        targetTransform.localRotation = Quaternion.identity;
     }
 }

@@ -21,6 +21,10 @@ public class NPCChooseMenu : MonoBehaviour
     [Header("Setting")]
     [SerializeField] private int decreasePopularityValue = 5;
 
+    [Header("Particle")]
+    [SerializeField] private ParticleSystem happyParticle;
+    [SerializeField] private ParticleSystem angryParticle;
+
     [Header("Reference")]
     [SerializeField] private PathFinding pathFinding;
 
@@ -84,6 +88,7 @@ public class NPCChooseMenu : MonoBehaviour
             PopularityManager.instance.DecreasePopularity(decreasePopularityValue);
             AudioManager.instance.PlaySFX(AudioManager.instance.npcBadMood);
         }
+        angryParticle.Play(true);
         StartCoroutine(NPCLeaveRestaurant());
     }
     public void NPCHappyEatFood()
@@ -111,7 +116,10 @@ public class NPCChooseMenu : MonoBehaviour
         foodIcon.enabled = false;
         foodBubble.enabled = false;
         CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
-        if(AudioManager.instance != null)
+
+        happyParticle.Play(true);
+
+        if (AudioManager.instance != null)
         {
             AudioManager.instance.PlaySFX(AudioManager.instance.money);
         }
