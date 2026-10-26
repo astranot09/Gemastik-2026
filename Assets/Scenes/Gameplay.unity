@@ -8929,7 +8929,6 @@ RectTransform:
   - {fileID: 1887344347}
   - {fileID: 1641496474}
   - {fileID: 574772378}
-  - {fileID: 1386949427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10954,113 +10953,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 329596239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1386949426
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1386949427}
-  - component: {fileID: 1386949431}
-  - component: {fileID: 1386949430}
-  - component: {fileID: 1386949429}
-  - component: {fileID: 1386949428}
-  m_Layer: 5
-  m_Name: Star
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1386949427
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386949426}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1155143798}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -401.37, y: -250}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &1386949428
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386949426}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
---- !u!114 &1386949429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386949426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a1d1c6f3aee2c4a9cdd7fc7f9e8a9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starTransform: {fileID: 1386949427}
-  starCanvas: {fileID: 1386949428}
-  scaleUp: 1.2
-  scaleUpDuration: 0.75
-  targetFly: {fileID: 0}
-  flyDuration: 1.25
---- !u!114 &1386949430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386949426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 4815476061570213978, guid: 0b3b744248eeedb4baa5ae40c878dc5a, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1386949431
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386949426}
-  m_CullTransparentMesh: 1
 --- !u!1 &1392976569
 GameObject:
   m_ObjectHideFlags: 0
@@ -16765,6 +16657,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 158923479}
     m_Modifications:
+    - target: {fileID: 2914163301595932249, guid: 8e16dcb5f4d2cb14698d0c1f4f8c4522, type: 3}
+      propertyPath: uiPrefab
+      value: 
+      objectReference: {fileID: 4225200530967650522, guid: 34eadbba801dabd428aa6048028ab1d5, type: 3}
+    - target: {fileID: 2914163301595932249, guid: 8e16dcb5f4d2cb14698d0c1f4f8c4522, type: 3}
+      propertyPath: canvasRect
+      value: 
+      objectReference: {fileID: 1155143798}
+    - target: {fileID: 2914163301595932249, guid: 8e16dcb5f4d2cb14698d0c1f4f8c4522, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1615463175}
     - target: {fileID: 3305265604406141307, guid: 8e16dcb5f4d2cb14698d0c1f4f8c4522, type: 3}
       propertyPath: m_Name
       value: PopularityManager

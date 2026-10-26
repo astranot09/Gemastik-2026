@@ -118,6 +118,7 @@ public class NPCChooseMenu : MonoBehaviour
         CurrencyManager.instance.AddMoney(menuOrder.menuPrice);
 
         happyParticle.Play(true);
+        PopularityManager.instance.SpawnUIAtWorldPosition(this.transform);
 
         if (AudioManager.instance != null)
         {
