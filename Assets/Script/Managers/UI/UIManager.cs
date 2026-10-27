@@ -170,7 +170,7 @@ public class UIManager : MonoBehaviour
         if (x == 0)
             x = 5;
 
-        currencyText.text = $"Rp.{CurrencyManager.instance.Money}k / Rp.{CurrencyManager.instance.BaseTargetMoney}k - {5-(x)} days left";
+        currencyText.text = $"Rp.{CurrencyManager.instance.Money}k / Rp.{CurrencyManager.instance.BaseTargetMoney}k\n{5-(x)} days left";
         if(GameManager.instance == null) return;
         dayText.text = $"Day : {GameManager.instance.Day}";
     }
