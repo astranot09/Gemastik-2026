@@ -1,7 +1,9 @@
 # Flint's No Waste Restaurant
 
 <p><strong>Video Gameplay</strong></p>
-<video src="https://github.com/user-attachments/assets/6849ed02-5f34-49d0-ae97-707787faad22" width="320" height="180" autoplay loop muted playsinline></video>
+<img width="320" height="180" alt="gifFlint2" src="https://github.com/user-attachments/assets/bfab8fbd-bdb7-47b6-ac02-ed1571866ed6" />
+<img width="320" height="180" alt="flintgif1" src="https://github.com/user-attachments/assets/c966de5d-4c7e-455a-acd4-7f18b2c357d1" />
+
 
 ## About Game
 Flint's No Waste Policy is a cozy, casual management game where players run a restaurant by designing menus and managing food inventory to satisfy customer demand while minimizing food waste. Through inventory management and menu planning mechanics, players are encouraged to use ingredients efficiently and mindfully to keep food waste to a minimum.
